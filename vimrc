@@ -45,7 +45,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
-Plugin 'jisaacks/GitGutter'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'geoffharcourt/one-dark.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -67,7 +67,9 @@ call vundle#end()
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeIgnore = ['\.swp$', '\.swo$']
 let g:NERDTreeShowHidden = 1
-let g:NERDTreeWinSize = 50
+let g:NERDTreeWinSize =25 
+let g:gitgutter_enabled = 1
+let g:gitgutter_signs = 1
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
