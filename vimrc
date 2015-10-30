@@ -46,6 +46,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'elzr/vim-json'
+Plugin 'mxw/vim-jsx'
 Plugin 'geoffharcourt/one-dark.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -65,7 +67,7 @@ call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings
 let g:NERDTreeChDirMode = 2
-let g:NERDTreeIgnore = ['\.swp$', '\.swo$']
+let g:NERDTreeIgnore = ['\.swp$', '\.swo$', '.git$']
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize =25 
 let g:gitgutter_enabled = 1
@@ -76,7 +78,7 @@ let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsEnableSnipMate = 0
 let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 let g:ctrlp_custom_ignore = { 'dir':'\v[\/](\.git|\.hg|\.svn|docs|node_modules|puphpet|vendor)$', 'file':'\v\.(dll|exe|so|swp)$' }
-let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
+" let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 1
 let g:javascript_doc = 'yuidoc'
@@ -87,6 +89,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_style_error_symbol = 'x'
 let g:syntastic_style_warning_symbol = '!'
 let g:syntastic_warning_symbol = '!'
+let g:jsx_ext_required = 0
 
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif

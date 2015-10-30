@@ -41,7 +41,7 @@ install_vundle () {
 install_vim_plugins () {
   echo "Installing VIM plugins..."
   vim +PluginInstall +qall
-  echo "done"
+  echo "...done"
 }
 
 install_vundle
