@@ -150,6 +150,7 @@ set smartcase             " ... unless they contain at least one capital letter
 set smartindent           " automatically insert one extra level of indentation
 set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
+set splitright            " Default to split
 
 " Filetypes
 autocmd BufNewFile,BufRead *.handlebars,*.hbr,*.hbs,*.hbt setl ft=mustache
@@ -165,3 +166,10 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType ruby set sw=2 ts=2
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 06. Custom Commands 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" map <silent> <C-n> :NERDTreeFocus<CR>
+" nnoremap <Leader>n :NERDTreeTabsToggle<CR>
+" nnoremap <Leader>t :TagbarToggle<CR>
