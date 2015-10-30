@@ -22,23 +22,15 @@
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'JazzCore/ctrlp-cmatcher'
-" Plugin 'SirVer/ultisnips'
-" Plugin 'Valloric/YouCompleteMe'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'honza/vim-snippets'
-Plugin 'itchyny/lightline.vim'
+Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'mattn/emmet-vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+Plugin 'JazzCore/ctrlp-cmatcher'
+Plugin 'honza/vim-snippets'
+Plugin 'itchyny/lightline.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-repeat'
@@ -46,14 +38,27 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'elzr/vim-json'
+Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'tomtom/tcomment_vim'
+
+" Syntax
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'scrooloose/syntastic'
+" Plugin 'JulesWang/css.vim' " only necessary if your Vim version < 7.4
+Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'mxw/vim-jsx'
+Plugin 'elzr/vim-json'
+
+" Theme / Colors
 Plugin 'geoffharcourt/one-dark.vim'
+
+" Dependencies
+" Plugin 'honza/vim-snippets'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-
-" Optional:
-" Plugin 'honza/vim-snippets'
 
 " Ruby / Rails
 Plugin 'tpope/vim-rails'
@@ -78,9 +83,8 @@ let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsEnableSnipMate = 0
 let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 let g:ctrlp_custom_ignore = { 'dir':'\v[\/](\.git|\.hg|\.svn|docs|node_modules|puphpet|vendor)$', 'file':'\v\.(dll|exe|so|swp)$' }
-" let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
 let g:indent_guides_auto_colors = 0
-let g:indent_guides_guide_size = 1
+let g:indent_guides_guide_size = 2
 let g:javascript_doc = 'yuidoc'
 let g:markdown_fenced_languages = ['css', 'html', 'less', 'javascript', 'js=javascript', 'json=javascript', 'sass', 'scss', 'xml']
 let g:syntastic_error_symbol = '✗'
@@ -152,9 +156,9 @@ autocmd BufNewFile,BufRead *.handlebars,*.hbr,*.hbs,*.hbt setl ft=mustache
 autocmd BufNewFile,BufRead *.json setl ft=json
 autocmd BufNewFile,BufRead Vagrantfile setl ft=ruby
 autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType html setl omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS sw=4 ts=4
+autocmd FileType html setl omnifunc=htmlcomplete#CompleteTags sw=4 ts=4
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS sw=4 ts=4
 autocmd FileType json set sw=2 ts=2
 autocmd FileType markdown setl omnifunc=htmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
