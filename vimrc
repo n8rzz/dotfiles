@@ -39,8 +39,10 @@ Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ervandew/supertab'
+Plugin 'bling/vim-bufferline'
+Plugin 'ap/vim-css-color'
+Plugin 'valloric/YouCompleteMe'
 " Plugin 'SirVer/ultisnips'
-" Plugin 'Valloric/YouCompleteMe'
 " Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'tomtom/tcomment_vim'
 
@@ -80,6 +82,8 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize =25 
 let g:gitgutter_enabled = 1
 let g:gitgutter_signs = 1
+let g:gitgutter_eager = 1
+let g:gitgutter_realtime = 0
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
@@ -96,7 +100,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_style_error_symbol = 'x'
 let g:syntastic_style_warning_symbol = '!'
 let g:syntastic_warning_symbol = '!'
-let g:airline_theme='luna'
+let g:airline_theme='badwolf'
 let g:airline_powerline_fonts=1
 let g:jsx_ext_required = 0
 
