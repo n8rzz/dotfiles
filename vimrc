@@ -34,17 +34,19 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'ervandew/supertab'
 " Plugin 'SirVer/ultisnips'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'tomtom/tcomment_vim'
 
 " Syntax
+Plugin 'tpope/vim-surround'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
 " Plugin 'JulesWang/css.vim' " only necessary if your Vim version < 7.4
@@ -61,6 +63,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 
 " Ruby / Rails
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'garbas/vim-snipmate'
 
@@ -93,6 +96,8 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_style_error_symbol = 'x'
 let g:syntastic_style_warning_symbol = '!'
 let g:syntastic_warning_symbol = '!'
+let g:airline_theme='luna'
+let g:airline_powerline_fonts=1
 let g:jsx_ext_required = 0
 
 " autocmd StdinReadPre * let s:std_in=1
@@ -106,6 +111,9 @@ filetype off                    "required
 set encoding=utf-8
 set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
+" Show trailing whitespace and spaces before a tab:
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\\t/
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 02. Events
@@ -117,6 +125,7 @@ autocmd FileType ruby setlocal sw=2 ts=2 sts=2
 " 03. Themes/Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
+syntax enable
 color onedark
 let &showbreak='└ '
 
@@ -134,6 +143,7 @@ set nohlsearch            " Don't continue to highlight searched phrases.
 set ruler                 " Always show info along bottom.
 set showmatch
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
+set laststatus=2
 set visualbell
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
