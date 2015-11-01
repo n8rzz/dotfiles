@@ -41,7 +41,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ervandew/supertab'
 Plugin 'bling/vim-bufferline'
 Plugin 'ap/vim-css-color'
-Plugin 'valloric/YouCompleteMe'
+" Plugin 'valloric/YouCompleteMe'
 " Plugin 'SirVer/ultisnips'
 " Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'tomtom/tcomment_vim'
@@ -77,7 +77,7 @@ call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings
 let g:NERDTreeChDirMode = 2
-let g:NERDTreeIgnore = ['\.swp$', '\.swo$', '.git$']
+let g:NERDTreeIgnore = ['\.swp$', '\.swo$', '.git$', '.idea$', 'node_modules$']
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize =25 
 let g:gitgutter_enabled = 1
