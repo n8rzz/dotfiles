@@ -29,11 +29,11 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'JazzCore/ctrlp-cmatcher'
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 Plugin 'itchyny/lightline.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-repeat'
+" Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'tomtom/tcomment_vim'
+" Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
@@ -69,7 +69,7 @@ Plugin 'tomtom/tlib_vim'
 " Ruby / Rails
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
-Plugin 'garbas/vim-snipmate'
+" Plugin 'garbas/vim-snipmate'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -86,11 +86,11 @@ let g:gitgutter_enabled = 1
 let g:gitgutter_signs = 1
 let g:gitgutter_eager = 1
 let g:gitgutter_realtime = 0
-let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
-let g:UltiSnipsJumpForwardTrigger='<tab>'
-let g:UltiSnipsEnableSnipMate = 0
-let g:UltiSnipsSnippetDirectories = ['UltiSnips']
+" let g:UltiSnipsExpandTrigger='<tab>'
+" let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+" let g:UltiSnipsJumpForwardTrigger='<tab>'
+" let g:UltiSnipsEnableSnipMate = 0
+" let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 let g:ctrlp_custom_ignore = { 'dir':'\v[\/](\.git|\.hg|\.svn|docs|node_modules|puphpet|vendor)$', 'file':'\v\.(dll|exe|so|swp)$' }
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_guide_size = 2
