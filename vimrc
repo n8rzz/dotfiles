@@ -58,6 +58,8 @@ Plugin 'elzr/vim-json'
 
 " Theme / Colors
 Plugin 'geoffharcourt/one-dark.vim'
+" Plugin 'christophermca/meta5'
+" Plugin 'fent/vim-frozen'
 
 " Dependencies
 " Plugin 'honza/vim-snippets'
@@ -131,6 +133,8 @@ autocmd FileType ruby setlocal sw=2 ts=2 sts=2
 syntax on
 syntax enable
 color onedark
+" color meta5
+" color frozen
 let &showbreak='└ '
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
