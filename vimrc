@@ -108,9 +108,6 @@ let g:airline_powerline_fonts=1
 let g:jsx_ext_required = 0
 let g:user_emmet_install_global = 0
 
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 01. General                                                               
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -193,8 +190,6 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.js let g:syntastic_javascript_checkers = ['jshint', 'jscs']
   " Treat .md files as .markdown
   autocmd BufNewFile,BufRead *.md set syntax=markdown
-  " Start NERDTree automatically
-  autocmd VimEnter * NERDTree
   " Enable emmet for JavaScript and CSS files
   autocmd FileType html,css EmmetInstall
   " Indentation for CSS files
