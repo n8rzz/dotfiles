@@ -40,6 +40,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ervandew/supertab'
 Plugin 'bling/vim-bufferline'
+Plugin 'mattn/emmet-vim'
 Plugin 'ap/vim-css-color'
 " Plugin 'valloric/YouCompleteMe'
 " Plugin 'SirVer/ultisnips'
@@ -51,7 +52,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
-" Plugin 'JulesWang/css.vim' " only necessary if your Vim version < 7.4
+Plugin 'JulesWang/css.vim' " only necessary if your Vim version < 7.4
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'elzr/vim-json'
@@ -105,6 +106,7 @@ let g:syntastic_warning_symbol = '!'
 let g:airline_theme='badwolf'
 let g:airline_powerline_fonts=1
 let g:jsx_ext_required = 0
+let g:user_emmet_install_global = 0
 
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -112,14 +114,16 @@ let g:jsx_ext_required = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 01. General                                                               
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
-filetype off                    "required
+set nobackup                    " disallow backup files
+set noswapfile                  " disallow swap files
+set nocompatible                " get rid of Vi compatibility mode. SET FIRST!
+" filetype off                    " required
 set encoding=utf-8
 set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
 " Show trailing whitespace and spaces before a tab:
-:highlight ExtraWhitespace ctermbg=red guibg=red
-:autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\\t/
+" :highlight ExtraWhitespace ctermbg=red guibg=red
+" :autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\\t/
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 02. Events
@@ -151,43 +155,72 @@ set nohlsearch            " Don't continue to highlight searched phrases.
 set ruler                 " Always show info along bottom.
 set showmatch
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
+set title                 " show filename in window titlebar
 set laststatus=2
-set visualbell
+set visualbell            " disable audio warnings
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 05. Text Formatting/Layout
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set autoindent            " auto-indent
-set backspace=indent,eol,start  " backspace through everything in insert mode
-set tabstop=2             " tab spacing
-set softtabstop=2         " unify
-set shiftwidth=2          " indent/outdent by 2 columns
-set shiftround            " always indent/outdent to the nearest tabstop
-set expandtab             " use spaces instead of tabs
-set smartcase             " ... unless they contain at least one capital letter
-set smartindent           " automatically insert one extra level of indentation
-set smarttab              " use tabs at the start of a line, spaces elsewhere
-set nowrap                " don't wrap text
-set splitright            " Default to split
+set autoindent                                " auto-indent
+set backspace=indent,eol,start                " backspace through everything in insert mode
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:. " highlight whitespaces
+set tabstop=2                                 " tab spacing
+set softtabstop=2                             " unify
+set shiftwidth=2                              " indent/outdent by 2 columns
+set shiftround                                " always indent/outdent to the nearest tabstop
+set expandtab                                 " use spaces instead of tabs
+set smartcase                                 " ... unless they contain at least one capital letter
+set smartindent                               " automatically insert one extra level of indentation
+set smarttab                                  " use tabs at the start of a line, spaces elsewhere
+set nowrap                                    " don't wrap text
+" set splitright                                " Default to split
+
+if has("autocmd")
+  " Enable filetype plugin
+  " filetype plugin on
+  " Enable file type detection
+  filetype on
+  " Treat .json files as .js
+  autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+  autocmd BufNewFile,BufRead *.es6 setfiletype javascript syntax=javascript
+  autocmd BufNewFile,BufRead *.es7 setfiletype javascript syntax=javascript
+  autocmd BufNewFile,BufRead *.tsx setfiletype typescript syntax=typescript
+  " Set appropriate linters
+  autocmd BufNewFile,BufRead *.jsx let g:syntastic_javascript_jshint_exec = 'jsxhint'
+  autocmd BufNewFile,BufRead *.jsx let g:syntastic_javascript_jscs_exec = 'jsxcs'
+  autocmd BufNewFile,BufRead *.js let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+  " Treat .md files as .markdown
+  autocmd BufNewFile,BufRead *.md set syntax=markdown
+  " Start NERDTree automatically
+  autocmd VimEnter * NERDTree
+  " Enable emmet for JavaScript and CSS files
+  autocmd FileType html,css EmmetInstall
+  " Indentation for CSS files
+  autocmd BufNewFile,BufRead *.css,*.html,*.js,*.jsx,*.json,*.py call SetIndent(4)
+endif
+
 
 " Filetypes
-autocmd BufNewFile,BufRead *.handlebars,*.hbr,*.hbs,*.hbt setl ft=mustache
-autocmd BufNewFile,BufRead *.json setl ft=json
-autocmd BufNewFile,BufRead Vagrantfile setl ft=ruby
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS sw=4 ts=4
-autocmd FileType html setl omnifunc=htmlcomplete#CompleteTags sw=4 ts=4
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS sw=4 ts=4
-autocmd FileType json set sw=2 ts=2
-autocmd FileType markdown setl omnifunc=htmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType ruby set sw=2 ts=2
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+" autocmd BufNewFile,BufRead *.handlebars,*.hbr,*.hbs,*.hbt setl ft=mustache
+" autocmd BufNewFile,BufRead Vagrantfile setl ft=ruby
+" autocmd FileType css set omnifunc=csscomplete#CompleteCSS sw=4 ts=4
+" autocmd FileType html setl omnifunc=htmlcomplete#CompleteTags sw=4 ts=4
+" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS sw=4 ts=4
+" autocmd FileType json set sw=2 ts=2
+" autocmd FileType markdown setl omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+" autocmd FileType python set omnifunc=pythoncomplete#Complete
+" autocmd FileType ruby set sw=2 ts=2
+" autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 06. Custom Commands 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Toggle NERDTree
+nnoremap <C-e> :NERDTreeToggle<CR>   
+
 " map <silent> <C-n> :NERDTreeFocus<CR>
 " nnoremap <Leader>n :NERDTreeTabsToggle<CR>
 " nnoremap <Leader>t :TagbarToggle<CR>
