@@ -80,7 +80,7 @@ call vundle#end()
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeIgnore = ['\.swp$', '\.swo$', '.git$', '.idea$', 'node_modules$']
 let g:NERDTreeShowHidden = 1
-let g:NERDTreeWinSize =25 
+let g:NERDTreeWinSize = 35 
 
 
 " airblade/vim-gitgutter
@@ -124,6 +124,7 @@ let g:rspec_runner = 'os_x_iterm2'
 """""""""""
 let g:indent_guides_start_level = 3 
 let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
 
 " pangloss/vim-javascipt
 """""""""""
@@ -194,7 +195,7 @@ if has("autocmd")
   " Enable emmet for JavaScript and CSS files
   autocmd FileType html,css EmmetInstall
   " Indentation for CSS files
-  autocmd BufNewFile,BufRead *.css,*.html,*.js,*.jsx,*.json,*.py call SetIndent(4)
+  " autocmd BufNewFile,BufRead *.css,*.html,*.js,*.jsx,*.json,*.py 
   autocmd FileType ruby setlocal sw=2 ts=2 sts=2
 endif
 
