@@ -37,7 +37,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-repeat'
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 Plugin 'tomtom/tcomment_vim'
 
 " Syntax
@@ -89,11 +89,6 @@ let g:gitgutter_enabled = 1
 let g:gitgutter_signs = 1
 let g:gitgutter_eager = 1
 let g:gitgutter_realtime = 0
-
-" vim-indent-guides
-"""""""""""
-" let g:indent_guides_auto_colors = 0
-" let g:indent_guides_guide_size = 2
 
 " scrooloose/syntastic
 """""""""""
@@ -193,7 +188,7 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.md set syntax=markdown
 
   " Enable emmet for JavaScript and CSS files
-  autocmd FileType html,css EmmetInstall
+  " autocmd FileType html,css EmmetInstall
   " Indentation for CSS files
   " autocmd BufNewFile,BufRead *.css,*.html,*.js,*.jsx,*.json,*.py 
   autocmd FileType ruby setlocal sw=2 ts=2 sts=2
@@ -234,6 +229,10 @@ nmap <leader>W :w!<cr>
 
 " Toggle NERDTree
 nnoremap <Leader>n :NERDTreeTabsToggle<CR>
+" Move to left window
+nnoremap <Leader>H <C-W>h<CR>
+" Move to right window
+nnoremap <Leader>L <C-W>l<CR>
 
 " This replaces :tabnew 
 nmap <leader>T :enew<cr>
