@@ -15,7 +15,7 @@
 "   05. Theme/Colors ............ Colors, fonts, etc.
 "   06. Key Mappings ............ Commands mapped to keys
 "
- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -46,13 +46,22 @@ Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'isRuslan/vim-es6'
+Plugin 'mattn/emmet-vim'
+
+" Languages
 Plugin 'JulesWang/css.vim' 
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'isRuslan/vim-es6'
 Plugin 'mxw/vim-jsx'
 Plugin 'elzr/vim-json'
 Plugin 'ap/vim-css-color'
+
+" Ruby / Rails
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-endwise'
 
 " Theme / Colors
 Plugin 'geoffharcourt/one-dark.vim'
@@ -61,11 +70,6 @@ Plugin 'geoffharcourt/one-dark.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 
-" Ruby / Rails
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rails'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-endwise'
 
 " Plugins Not in Use
 
@@ -74,14 +78,12 @@ call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " scrooloose/nerdtree
 """""""""""
 let g:NERDTreeChDirMode = 2
-let g:NERDTreeIgnore = ['\.swp$', '\.swo$', '.git$', '.idea$', 'node_modules$']
+let g:NERDTreeIgnore = ['\.swp$', '\.swo$', '.git$', '.idea$']
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 35 
-
 
 " airblade/vim-gitgutter
 """""""""""
@@ -125,13 +127,13 @@ let g:indent_guides_enable_on_vim_startup = 1
 """""""""""
 let g:javascript_enable_domhtmlcss = 1
 
-"
+" mxw/vim-js
 """""""""""
-" let g:jsx_ext_required = 0
+let g:jsx_ext_required = 0
 
 
 """""""""""
-" let g:javascript_doc = 'yuidoc'
+let g:javascript_doc = 'yuidoc'
 
 
 """""""""""
@@ -192,6 +194,10 @@ if has("autocmd")
   " Indentation for CSS files
   " autocmd BufNewFile,BufRead *.css,*.html,*.js,*.jsx,*.json,*.py 
   autocmd FileType ruby setlocal sw=2 ts=2 sts=2
+  autocmd Filetype html setlocal ts=4 sw=4 expandtab
+  autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
+  autocmd FileType css setlocal sw=4 ts=4 expandtab
+  autocmd FileType scss setlocal sw=4 ts=4 expandtab
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
