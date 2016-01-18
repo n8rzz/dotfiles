@@ -70,7 +70,6 @@ Plugin 'geoffharcourt/one-dark.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 
-
 " Plugins Not in Use
 
 call vundle#end()
