@@ -1,0 +1,208 @@
+@import "colors";
+@import "syntax-variables";
+
+atom-text-editor, :host {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+}
+
+atom-text-editor .gutter, :host .gutter {
+  background-color: @syntax-gutter-background-color;
+  color: @syntax-gutter-text-color;
+}
+
+atom-text-editor .gutter .line-number.cursor-line, :host .gutter .line-number.cursor-line {
+  background-color: @syntax-gutter-background-color-selected;
+  color: @syntax-gutter-text-color-selected;
+}
+
+atom-text-editor .gutter .line-number.cursor-line-no-selection, :host .gutter .line-number.cursor-line-no-selection {
+  color: @syntax-gutter-text-color-selected;
+}
+
+atom-text-editor::shadow .wrap-guide, :host .wrap-guide {
+  // color: @syntax-wrap-guide-color;
+  background-color: transparent;
+  border-left: 1px dashed @syntax-wrap-guide-color;
+}
+
+atom-text-editor .indent-guide, :host .indent-guide {
+  color: @syntax-indent-guide-color;
+}
+
+atom-text-editor .invisible-character, :host .invisible-character {
+  color: @syntax-invisible-character-color;
+}
+
+atom-text-editor .search-results .marker .region, :host .search-results .marker .region {
+  background-color: transparent;
+  border: @syntax-result-marker-color;
+}
+
+atom-text-editor .search-results .marker.current-result .region, :host .search-results .marker.current-result .region {
+  border: @syntax-result-marker-color-selected;
+}
+
+atom-text-editor.is-focused .cursor, :host(.is-focused) .cursor {
+  border-color: @syntax-cursor-color;
+}
+
+atom-text-editor.is-focused .selection .region, :host(.is-focused) .selection .region {
+  background-color: @syntax-selection-color;
+}
+
+atom-text-editor.is-focused .line-number.cursor-line-no-selection, atom-text-editor.is-focused .line.cursor-line, :host(.is-focused) .line-number.cursor-line-no-selection, :host(.is-focused) .line.cursor-line {
+  background-color: @oil;
+}
+
+.entity.other.attribute-name {
+  color: @brandy-punch;
+}
+
+.comment {
+  color: @monsoon;
+}
+
+.keyword, .storage {
+  color: @raw-sienna;
+}
+
+.storage {
+  color: @coral-tree;
+}
+
+.entity.name.function, .keyword.other.name-of-parameter.objc {
+  color: @koromiko;
+}
+
+.entity.name {
+  color: @white;
+}
+
+.constant.numeric {
+  color: @wild-willow;
+}
+
+.variable.language, .variable.other {
+  color: @periwinkle;
+}
+
+.constant {
+  color: @hippie-blue;
+}
+
+.variable.other.constant {
+  color: @mojo;
+}
+
+.constant.language {
+  color: @ship-cove;
+}
+
+.string {
+  color: @wild-willow;
+}
+
+.support.function {
+  color: @mojo;
+}
+
+.support.type {
+  color: @ship-cove;
+}
+
+.support.constant {
+  color: @wild-willow;
+}
+
+.meta.tag, .declaration.tag, .entity.name.tag {
+  color: @rob-roy;
+}
+
+.invalid {
+  color: @white;
+  background-color: @red-berry;
+}
+
+.constant.character.escaped, .constant.character.escape, .string .source, .string .source.ruby {
+  color: @coral-tree;
+}
+
+.markup.inserted {
+  color: @smoke;
+  background-color: @parsley;
+}
+
+.markup.deleted {
+  color: @smoke;
+  background-color: @lonestar;
+}
+
+.meta.diff.header, .meta.separator.diff, .meta.diff.index, .meta.diff.range {
+  background-color: @govenor-bay;
+}
+
+.keyword.other.unit {
+  color: @wild-willow;
+}
+
+.entity.other.attribute-name.id.css {
+  color: @copper;
+}
+
+.entity.other.attribute-name.class {
+  color: @copper;
+}
+
+.entity.other.less.mixin {
+  color: @coral-tree;
+}
+
+.variable.declaration.less {
+  color: @copper;
+}
+
+.keyword.control.html.elements {
+  color: #e5b567;
+}
+
+.meta.attribute-selector.css {
+  color: @copper;
+}
+
+.keyword.control.at-rule.css.sass {
+  color: @coral-tree;
+}
+
+.markup.deleted.git_gutter {
+  color: @cannon-pink;
+}
+
+.markup.inserted.git_gutter {
+  color: @wild-willow;
+}
+
+.markup.changed.git_gutter {
+  color: @copper;
+}
+
+.markup.ignored.git_gutter {
+  color: @aluminum;
+}
+
+.markup.untracked.git_gutter {
+  color: @iron;
+}
+
+// TODO: use linter classes
+.sublimelinter.mark.warning {
+  color: @equator;
+}
+
+.sublimelinter.mark.error {
+  color: @tuscany;
+}
+
+.sublimelinter.gutter-mark {
+  color: @white;
+}

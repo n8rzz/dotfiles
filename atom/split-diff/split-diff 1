@@ -1,0 +1,118 @@
+import React, { PropTypes } from 'react';
+import t from 'tcomb';
+import _get from 'lodash/get';
+
+import VerticalRhythm, { VR_INCREMENTS } from '../../../../../layout/VerticalRhythm';
+
+import SearchFilterForm from '../../../../../container/Form/SearchForm/SearchFilterForm';
+import SearchForm from '../../../../../container/Form/SearchForm/SearchForm';
+import SearchMetaData from '../../../../../container/Form/SearchForm/SearchMetaData/SearchMetaData';
+
+import { QueryFilter } from '../../../../../../domain/search/QueryFilter';
+
+const SEARCH_LAYOUT = { width: 1 };
+
+export default function CategorySearchHeaderDecorator(HeaderComponent) {
+    return class CategorySearchHeader extends HeaderComponent {
+        static displayName = `CategorySearch(${HeaderComponent.displayName})`;
+
+        static propTypes = Object.assign(
+            {},
+            HeaderComponent.propTypes,
+            {
+                /* eslint-disable consistent-return */
+                /**
+                 * Validate the shape of the search query prop, which is actually
+                 * a query filter and a string
+                 * @param  {String} searchQuery.text
+                 * @param  {QueryFilter} searchQuery.queryFilter
+                 */
+                searchQuery: (props, propName, componentName) => {
+                    if (!props[propName]) {
+                        return;
+                    }
+                    const text = _get(props[propName], 'text');
+                    if (!t.String.is(text)) {
+                        return new Error(`
+                            Invalid prop ${propName}.text supplied to ${componentName};
+                            value ${text} (typeof ${typeof text}) is not a String;
+                        `);
+                    }
+
+                    const queryFilter = _get(props[propName], 'queryFilter');
+                    if (!QueryFilter.is(queryFilter)) {
+                        return new Error(`
+                            Invalid prop ${propName}.queryFilter supplied to ${componentName};
+                            value ${queryFilter} (typeof ${typeof queryFilter}) is not a QueryFilter;
+                        `);
+                    }
+                },
+                /* eslint-enable consistent-return */
+
+                /**
+                 * @type {Array<QueryFilter>}
+                 */
+                queryTermFilters: PropTypes.array,
+
+                onUpdateSearchQueryTerm: PropTypes.func
+            }
+        );
+
+        _clearSearchTerm = () => {
+            this.props.onFilterChange(
+                this.props.onUpdateSearchQueryTerm(this.refs.searchTermFilter.getFilter(), '')
+            );
+            this.refs.searchTermFilter.reset();
+            this.refs.searchTermInput.resetForm();
+        }
+        _onSearchSubmitHandler = e => {
+            e.preventDefault();
+            const queryFilter = this.refs.searchTermFilter.getFilter();
+            const queryTerm = this.refs.searchTermInput.getValue();
+
+            const text = t.Nil.is(queryTerm)
+                ? ''
+                : queryTerm.search;
+
+            this.props.onUpdateSearchQueryTerm(queryFilter, text);
+        }
+
+
+        composeLeftChildren() {
+            return (
+                <VerticalRhythm increment={ VR_INCREMENTS.ONE }>
+                    <form onSubmit={ this._onSearchSubmitHandler } >
+                        <div className="filterSearch">
+                            <div className="filterSearch-filter">
+                                <SearchFilterForm ref="searchTermFilter"
+                                                  value="all"
+                                                  options={ this.props.queryTermFilters } />
+                            </div>
+
+                            <div className="filterSearch-searchField">
+                                <SearchForm ref="searchTermInput"
+                                            layout={ SEARCH_LAYOUT } />
+                            </div>
+                        </div>
+                    </form>
+                    {
+                        t.Nil.is(_get(this.props.searchQuery, 'term', null))
+                            ? null
+                            : (
+                                <SearchMetaData onClearAll={this._clearSearchTerm}
+                                                totalHitCount={_get(this.props, 'totalItemCount', 0)} >
+                                    Searching for <SearchMetaData.Highlight>{
+                                        this.props.searchQuery.term.text
+                                    }</SearchMetaData.Highlight> in <SearchMetaData.Highlight>{
+                                        this.props.searchQuery.text
+                                    }</SearchMetaData.Highlight>
+                                </SearchMetaData>
+                            )
+
+                    }
+                </VerticalRhythm>
+
+            );
+        }
+    };
+}

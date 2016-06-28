@@ -1,0 +1,142 @@
+@import "colors";
+
+// See list of scopes in "Naming Conventions" section of the
+// TextMate Language Grammar Guide:
+// http://manual.macromates.com/en/language_grammars#naming_conventions
+
+.comment {
+  font-style: italic;
+  color: @light-gray;
+}
+
+.string {
+  color: @blue;
+
+  &.regexp {
+    color: @purple;
+  }
+
+  .punctuation.definition {
+    color: fadeout(@blue, 25%);
+  }
+}
+
+.constant {
+  &.numeric {
+    color: @light-blue;
+  }
+
+  &.language {
+    color: @light-blue;
+  }
+
+  &.character {
+    color: @purple;
+  }
+}
+
+.variable.parameter {
+  font-style: italic;
+}
+
+.variable.language {
+  color: @light-purple;
+}
+
+.variable.readwrite {
+  color: @light-purple;
+}
+
+.keyword {
+  color: @violet;
+}
+
+.storage {
+  color: @violet;
+
+  &.fixme, &.xxx, &.hack, {
+    color: @magenta;
+  }
+
+  &.todo, &.note, &.idea, &.review, &.nb {
+    color: @purple;
+  }
+
+  &.changed {
+    color: @yellow;
+  }
+}
+
+.entity {
+  &.name {
+    color: @cyan;
+  }
+
+  &.attribute-name {
+    color: lighten(@silver, 10%);
+  }
+}
+
+.meta.function-call, .meta.method-call {
+  & > .entity.name.function {
+    color: @text;
+  }
+}
+
+.support {
+  &.variable {
+    color: @light-purple;
+  }
+}
+
+.invalid {
+    background: fadeout(@red, 80%) !important;
+    color: lighten(@red, 15%) !important;
+}
+
+.punctuation {
+  &.definition {
+    &.tag {
+      color: fadeout(@cyan, 25%);
+    }
+  }
+
+  &.separator.key-value {
+    color: @violet;
+  }
+}
+
+.markup {
+  &.underline {
+    border-bottom: thin solid;
+  }
+
+  &.bold {
+    font-weight: bold;
+  }
+
+  &.italic,
+  &.quote {
+    font-style: italic;
+  }
+
+  &.strike {
+    text-decoration: line-through;
+  }
+
+  &.deleted {
+    color: @orange;
+  }
+
+  &.changed {
+    color: @yellow;
+  }
+
+  &.inserted {
+    color: @green;
+  }
+
+  &.raw {
+    color: @silver;
+  }
+}
