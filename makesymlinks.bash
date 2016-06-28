@@ -29,6 +29,7 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
+# move atom configs to .atom folder
 echo "Moving atom from ~ to $dir"
 mv ~$dir/atom ~/.atom
 
