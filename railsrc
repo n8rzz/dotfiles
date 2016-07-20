@@ -1,0 +1,3 @@
+-d postgreql    # postgres db
+--skip-bundle   # skip running bundle on init of new rails app
+--skip-test     # skip built-in test framework. we'll use rspec
