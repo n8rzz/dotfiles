@@ -29,10 +29,6 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-# move atom configs to .atom folder
-echo "Moving atom from ~ to $dir"
-mv ~$dir/atom ~/.atom
-
 install_vundle () {
   if [[ ! -d ~/.vim ]]; then
     echo "Vundle not installed.  Installing Vundle..."
@@ -49,3 +45,8 @@ install_vim_plugins () {
 
 install_vundle
 install_vim_plugins
+
+# move atom configs to .atom folder
+echo "Moving atom from ~ to $dir"
+mv ~$dir/atom ~/.atom
+
