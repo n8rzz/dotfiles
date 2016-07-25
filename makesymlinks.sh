@@ -21,7 +21,7 @@ echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
 for file in $files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/.$file ~/dotfiles_old/
@@ -30,7 +30,7 @@ for file in $files; do
 done
 
 install_vundle () {
-  if [[ ! -d ~/.vim ]]; then
+  if [[ ! -d ~/.vim || ! -d .vim ]]; then
     echo "Vundle not installed.  Installing Vundle..."
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     echo "done"
@@ -47,7 +47,7 @@ install_vundle
 install_vim_plugins
 
 
-while [[ $# -gt 0  ]]; do
+while [ $# -gt 0  ]; do
   key="$1"
   case $key in
     # sh makesymlinks.sh -a
@@ -61,6 +61,9 @@ while [[ $# -gt 0  ]]; do
       else
         echo "Atom folder already exists, skipping copy"
       fi
+      shift
+      ;;
+    *)
       shift
       ;;
   esac
