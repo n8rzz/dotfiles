@@ -71,8 +71,8 @@ alias sgc='git config user.name "Nate Geslin" && git config user.email teamtomki
 
 # Tab complete for git branch names
 # add the following lines to your ~/.bash_profile:
-if [ -f $(brew --prefix)/etc/bash_completion  ]; then
-  . $(brew --prefix)/etc/bash_completion
+if [[ ("$OSTYPE" =~ ^darwin) && (-f $(brew --prefix)/etc/bash_completion) ]]; then
+. $(brew --prefix)/etc/bash_completion
 fi
 
 # Git branch name in prompt.
@@ -80,7 +80,7 @@ parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 # export PS1="\u@\h \W\[\033[35m\]\$(parse_git_branch)\[\033[00m\] $ "
-export PS1="\[\033[032m\]:::\[\033[0m\] \w\[\033[35m\]\$(parse_git_branch)\[\033[00m\] $ "
+export PS1="\u \[\033[032m\]:::\[\033[0m\] \w\[\033[35m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 # Show dirty state in prompt when in Git repos
 export GIT_PS1_SHOWDIRTYSTATE=1
