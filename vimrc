@@ -205,6 +205,7 @@ if has("autocmd")
   autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
   autocmd FileType css setlocal sw=4 ts=4 expandtab
   autocmd FileType scss setlocal sw=4 ts=4 expandtab
+  autocmd BufWritePre *.{rb,js,json,html,sh,bash}, %s/\s\+$//e
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

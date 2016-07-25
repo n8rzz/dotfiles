@@ -46,7 +46,23 @@ install_vim_plugins () {
 install_vundle
 install_vim_plugins
 
-# move atom configs to .atom folder
-echo "Moving atom from ~ to $dir"
-mv ~$dir/atom ~/.atom
+
+while [[ $# -gt 0  ]]; do
+  key="$1"
+  case $key in
+    # sh makesymlinks.sh -a
+    # sh makesymlinks.sh --atom
+    # Copy .atom folder if it doesn't exist
+    -a|--atom)
+      if [[ ! -d ~/.atom ]]; then
+        # move atom configs to .atom folder
+        echo "Moving atom from ~ to $dir"
+        mv ~$dir/atom ~/.atom
+      else
+        echo "Atom folder already exists, skipping copy"
+      fi
+      shift
+      ;;
+  esac
+done
 
