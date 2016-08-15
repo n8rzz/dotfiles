@@ -57,7 +57,7 @@ while [ $# -gt 0  ]; do
       if [[ ! -d ~/.atom ]]; then
         # move atom configs to .atom folder
         echo "Moving atom from ~ to $dir"
-        mv ~$dir/atom ~/.atom
+        cp -R ~$dir/atom ~/.atom
       else
         echo "Atom folder already exists, skipping copy"
       fi
