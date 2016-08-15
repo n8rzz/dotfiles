@@ -37,19 +37,18 @@ ulimit -n 1024
 #  2. ALIASES 
 #  -------------------------------------------------------------------------
 
-alias ll='ls -la'
 ## Folder Traversal
+alias ll='ls -la'
 cd() { builtin cd "$@"; ls; }
 alias ~='cd ~'
 alias c='clear'
-alias mcd='mkdir -p "$1" && cd "$1"'
-
+alias mcd='mkdir -p "$1" && cd $_'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-## GIT
+## Git
 alias gst='clear && git status'
 alias gco='git checkout'
 alias gci='git commit'
@@ -65,14 +64,19 @@ alias gmff='git merge --no-ff'
 alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
 alias glg2='git log --date-order --all --graph --name-status --format="%C(green)%H%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
 
+## Rails
+alias migrate='rake db:migrate && rake db:migrate RAILS_ENV=test'
+alias reseed='rake db:reset && rake db:migrate && rake db:seed'
+
 ## General Utility 
-alias el='./node_modules/.bin/eslint src'
 alias sgc='git config user.name "Nate Geslin" && git config user.email teamtomkins23@gamil.com'
 
-# Tab complete for git branch names
-# add the following lines to your ~/.bash_profile:
+# Tab completion
 if [[ ("$OSTYPE" =~ ^darwin) && (-f $(brew --prefix)/etc/bash_completion) ]]; then
 . $(brew --prefix)/etc/bash_completion
+
+  # add aliased git commands here to be recognized by tab complete
+  __git_complete gco _git_checkout
 fi
 
 # Git branch name in prompt.
