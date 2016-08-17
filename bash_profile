@@ -31,7 +31,7 @@ ulimit -n 1024
 # source ~/.profile
 
 [[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 #  -------------------------------------------------------------------------
 #  2. ALIASES 
