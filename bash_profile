@@ -1,15 +1,14 @@
+#!/usr/bin/env bash
 #  -------------------------------------------------------------------------
-# Filename: .bash_profile                                                         
-# Maintainer: Nate Geslin  <teamtomkins23@gmail.com>
-# URL: http://github.com/n8rzz/dotfiles
+#  Filename: .bash_profile
+#  Maintainer: Nate Geslin  <teamtomkins23@gmail.com>
+#  URL: http://github.com/n8rzz/dotfiles
 #
 #  Description:  BASH configurations and aliases
 #
-#  Menu and some commands taken from https://gist.github.com/natelandau/10654137
-#
 #  Sections:
 #  1.   Environment Configuration
-#  2.   Terminal Command Aliases 
+#  2.   Terminal Command Aliases
 #  3.   File and Folder Management
 #  4.   Searching
 #  5.   Process Management
@@ -18,6 +17,8 @@
 #  8.   Web Development
 #  9.   Reminders & Notes
 #
+#  Inspired by:
+#  - https://gist.github.com/natelandau/10654137
 #  -------------------------------------------------------------------------
 
 #  -------------------------------------------------------------------------
@@ -34,7 +35,7 @@ ulimit -n 1024
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 #  -------------------------------------------------------------------------
-#  2. ALIASES 
+#  2. ALIASES
 #  -------------------------------------------------------------------------
 
 ## Folder Traversal
@@ -68,7 +69,7 @@ alias glg2='git log --date-order --all --graph --name-status --format="%C(green)
 alias migrate='rake db:migrate && rake db:migrate RAILS_ENV=test'
 alias reseed='rake db:reset && rake db:migrate && rake db:seed'
 
-## General Utility 
+## General Utility
 alias sgc='git config user.name "Nate Geslin" && git config user.email teamtomkins23@gamil.com'
 
 # Tab completion

@@ -30,3 +30,8 @@ nerdresturant:
   paths: [
     "/Users/ngeslin/Documents/www/nerd_resturant"
   ]
+dotfiles:
+  title: "Dotfiles"
+  paths: [
+    "/Users/ngeslin/dotfiles"
+  ]

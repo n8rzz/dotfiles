@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
-
-# TODO: this file is a work in progress and is currently non-functional
-# This file is a collection of scripts that take a new laptop from factory clean to developer awesome
+#  -------------------------------------------------------------------------
+#  Filename: make_it_awesome.sh
+#  Maintainer: Nate Geslin <teamtomkins23@gmail.com>
+#  URL: http://github.com/n8rzz/dotfiles
+#
+#  Description:  From fresh Mac to Awesome Mac! Upgrade or install system pkgs
+#                then setup system with baseline applications and folders.
+#  -------------------------------------------------------------------------
 
 # Install rvm and ruby
 rvm / ruby / bundler
@@ -34,3 +39,19 @@ apm link ~/Documents/www/ss-orca-ui
 
 # Install ruby gems
 gem install bundler rails
+
+
+# Install n and node + npm
+BASE="$HOME"
+NODE_DIR="$BASE/.node"
+
+export N_PREFIX=$HOME/.node
+export PATH=$N_PREFIX/bin:$PATH
+
+mkdir -p $N_PREFIX/bin
+curl -o $N_PREFIX/bin/n https://raw.githubusercontent.com/visionmedia/n/master/bin/n
+chmod +x $N_PREFIX/bin/n
+n stable
+
+# npm pacakges
+npm install -g bower generator-generator gulp http-server kama-cli node-sass yo

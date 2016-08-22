@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
-
-################################
-### Brewfile start
+#  -------------------------------------------------------------------------
+#  Filename: Brewfile
+#  Maintainer: Nate Geslin <teamtomkins23@gmail.com>
+#  URL: http://github.com/n8rzz/dotfiles
 #
-# @author Nate Geslin
+#  Description:  Brewfile for installing system upgrades and
+#                additional applications
 #
-# Inspired by:
-# - https://github.com/mattstauffer/dotfiles/blob/master/.brew
-# - https://github.com/AlexandreBroudin/dotfiles/blob/master/Brewfile
-################################
+#  Inspired by:
+#  - https://github.com/mattstauffer/dotfiles/blob/master/.brew
+#  - https://github.com/AlexandreBroudin/dotfiles/blob/master/Brewfile
+#  -------------------------------------------------------------------------
 brew 'update'
 brew 'upgrade'
-
 brew 'coreutils'
 echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
 
@@ -28,9 +29,8 @@ brew 'git-flow'
 brew 'heroku-toolbelt'
 brew 'postgresql', restart_service: true
 
-## Setup Cask
-#
-# - https://github.com/caskroom/homebrew-cask
+## Install Cask
+# see - https://github.com/caskroom/homebrew-cask
 # brew 'caskroom/cask/brew-cask'
 tap 'caskroom/cask'
 tap 'caskroom/versions'

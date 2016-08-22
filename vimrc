@@ -4,8 +4,8 @@
 " URL: http://github.com/n8rzz/dotfiles
 "
 "
-"   Plugins ................. Install plugins with Vundle
-"   Plugin Settings ......... Plugin-specific settings
+" Plugins ....................... Install plugins with Vundle
+" Plugin Settings ............... Plugin-specific settings
 
 " Sections:
 "   01. General ................. General Vim behavior
@@ -14,7 +14,6 @@
 "   04. Vim UI .................. User interface behavior
 "   05. Theme/Colors ............ Colors, fonts, etc.
 "   06. Key Mappings ............ Commands mapped to keys
-"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

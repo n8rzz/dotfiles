@@ -1,10 +1,14 @@
-#!/bin/bash
-############################
-# makesymlinks.sh
-# This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
+#!/usr/bin/env bash
+#  -------------------------------------------------------------------------
+#  Filename: make_symlinks.sh
+#  Maintainer: Nate Geslin <teamtomkins23@gmail.com>
+#  URL: http://github.com/n8rzz/dotfiles
 #
-# Taken from: https://github.com/michaeljsmalley/dotfiles/blob/master/makesymlinks.sh
-############################
+#  Description:  Copy and create symlinks in home directory to dotfiles in ~/dotfiles
+#
+#  Inspired by:
+#  - https://github.com/michaeljsmalley/dotfiles/blob/master/makesymlinks.sh
+#  -------------------------------------------------------------------------
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
@@ -17,7 +21,7 @@ mkdir -p $olddir
 echo "...done"
 
 # change to the dotfiles directory
-echo "Changing to the $dir directory"
+echo "Changing to $dir directory"
 cd $dir
 echo "...done"
 
@@ -45,7 +49,6 @@ install_vim_plugins () {
 
 install_vundle
 install_vim_plugins
-
 
 while [ $# -gt 0  ]; do
   key="$1"
