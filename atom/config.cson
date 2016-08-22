@@ -72,6 +72,8 @@
     globalNodePath: "/Users/ngeslin/.node"
   "linter-rubocop":
     command: "/Users/ngeslin/.rvm/gems/ruby-2.2.2/bin/rubocop"
+  "linter-shellcheck":
+    shellcheckExecutablePath: "/usr/local/bin/shellcheck"
   "linter-write-good": {}
   "merge-conflicts": {}
   minimap:

@@ -28,6 +28,7 @@ brew 'git'
 brew 'git-flow'
 brew 'heroku-toolbelt'
 brew 'postgresql', restart_service: true
+brew 'shellcheck'
 
 ## Install Cask
 # see - https://github.com/caskroom/homebrew-cask

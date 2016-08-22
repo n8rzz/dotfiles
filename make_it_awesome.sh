@@ -40,7 +40,6 @@ apm link ~/Documents/www/ss-orca-ui
 # Install ruby gems
 gem install bundler rails
 
-
 # Install n and node + npm
 BASE="$HOME"
 NODE_DIR="$BASE/.node"
@@ -48,9 +47,9 @@ NODE_DIR="$BASE/.node"
 export N_PREFIX=$HOME/.node
 export PATH=$N_PREFIX/bin:$PATH
 
-mkdir -p $N_PREFIX/bin
-curl -o $N_PREFIX/bin/n https://raw.githubusercontent.com/visionmedia/n/master/bin/n
-chmod +x $N_PREFIX/bin/n
+mkdir -p "$N_PREFIX/bin"
+curl -o "$N_PREFIX/bin/n https://raw.githubusercontent.com/visionmedia/n/master/bin/n"
+chmod +x "$N_PREFIX/bin/n"
 n stable
 
 # npm pacakges
