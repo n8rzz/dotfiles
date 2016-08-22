@@ -13,3 +13,13 @@ Create symlinks by running
  ```
 
  ```-a | --atom``` creates a symlink from ```~/dotfiles/atom``` to ```~/.atom```.  This will copy all config ```.cson``` files and the [package-sync](https://atom.io/packages/package-sync) package file that will allow re-syncing of packages.
+
+ The following dotfiles will be copied to your root directory:
+```bash
+.bash_profile
+.eslintrc
+.gemrc
+.gitignore
+.railsrc
+.vimrc
+```
