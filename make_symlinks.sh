@@ -47,25 +47,26 @@ install_vundle
 install_vim_plugins
 
 
-# while [ $# -gt 0  ]; do
-#   key="$1"
-#   case $key in
-#     # sh makesymlinks.sh -a
-#     # sh makesymlinks.sh --atom
-#     # Copy .atom folder if it doesn't exist
-#     -a|--atom)
-#       if [[ ! -d ~/.atom ]]; then
-#         # move atom configs to .atom folder
-#         echo "Moving atom from ~ to $dir"
-#         cp -R ~$dir/atom ~/.atom
-#       else
-#         echo "Atom folder already exists, skipping copy"
-#       fi
-#       shift
-#       ;;
-#     *)
-#       shift
-#       ;;
-#   esac
-# done
+while [ $# -gt 0  ]; do
+  key="$1"
+  case $key in
+    # sh makesymlinks.sh -a
+    # sh makesymlinks.sh --atom
+    # Copy .atom folder if it doesn't exist
+    -a|--atom)
+      # if [[ ! -d ~/.atom ]]; then
+        # move atom configs to .atom folder
+      echo "Creating symlink for Atom from $dir to ~/.atom"
+        # cp -R ~$dir/atom ~/.atom
+      ln -s $dir/atom ~/.atom
+      # else
+      #   echo "Atom folder already exists, skipping copy"
+      # fi
+      shift
+      ;;
+    *)
+      shift
+      ;;
+  esac
+done
 
