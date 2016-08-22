@@ -9,20 +9,14 @@
 # - https://github.com/mattstauffer/dotfiles/blob/master/.brew
 # - https://github.com/AlexandreBroudin/dotfiles/blob/master/Brewfile
 ################################
-# Make sure we’re using the latest Homebrew
 brew 'update'
-
-# Upgrade any already-installed formulae
 brew 'upgrade'
 
-# Install GNU core utilities (those that come with OS X are outdated)
 brew 'coreutils'
 echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew 'findutils'
-
-# Install Bash 4
 brew 'bash'
 
 tap 'homebrew/dupes'
@@ -34,11 +28,11 @@ brew 'git-flow'
 brew 'heroku-toolbelt'
 brew 'postgresql', restart_service: true
 
-## Setup Sask
+## Setup Cask
 #
 # - https://github.com/caskroom/homebrew-cask
-# brew tap caskroom/cask
-brew 'caskroom/cask/brew-cask'
+# brew 'caskroom/cask/brew-cask'
+tap 'caskroom/cask'
 tap 'caskroom/versions'
 
 cask 'atom'

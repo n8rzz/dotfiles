@@ -6,6 +6,7 @@ before_script:
 
 script:
   - shellcheck make_it_awesome.sh
+  - shellcheck make_symlinks.sh
 
 notifications:
   email: false
