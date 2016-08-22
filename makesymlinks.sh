@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="vimrc bash_profile railsrc gemrc gitignore"    # list of files/folders to symlink in homedir
+files="vimrc bash_profile railsrc gemrc gitignore eslintrc"    # list of files/folders to symlink in homedir
 ##########
 
 # create dotfiles_old in homedir
@@ -47,25 +47,25 @@ install_vundle
 install_vim_plugins
 
 
-while [ $# -gt 0  ]; do
-  key="$1"
-  case $key in
-    # sh makesymlinks.sh -a
-    # sh makesymlinks.sh --atom
-    # Copy .atom folder if it doesn't exist
-    -a|--atom)
-      if [[ ! -d ~/.atom ]]; then
-        # move atom configs to .atom folder
-        echo "Moving atom from ~ to $dir"
-        cp -R ~$dir/atom ~/.atom
-      else
-        echo "Atom folder already exists, skipping copy"
-      fi
-      shift
-      ;;
-    *)
-      shift
-      ;;
-  esac
-done
+# while [ $# -gt 0  ]; do
+#   key="$1"
+#   case $key in
+#     # sh makesymlinks.sh -a
+#     # sh makesymlinks.sh --atom
+#     # Copy .atom folder if it doesn't exist
+#     -a|--atom)
+#       if [[ ! -d ~/.atom ]]; then
+#         # move atom configs to .atom folder
+#         echo "Moving atom from ~ to $dir"
+#         cp -R ~$dir/atom ~/.atom
+#       else
+#         echo "Atom folder already exists, skipping copy"
+#       fi
+#       shift
+#       ;;
+#     *)
+#       shift
+#       ;;
+#   esac
+# done
 

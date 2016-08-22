@@ -1,0 +1,11 @@
+atom/.apm
+atom/.node-gyp
+atom/.npm
+atom/blob-store
+atom/compile-cache
+atom/dev
+atom/git-time-machine
+atom/packages
+atom/recovery
+atom/split-diff
+atom/storage
