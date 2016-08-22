@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # TODO: this file is a work in progress and is currently non-functional
 # This file is a collection of scripts that take a new laptop from factory clean to developer awesome
 
