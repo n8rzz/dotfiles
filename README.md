@@ -4,6 +4,29 @@ make_it_awesome.sh
 ```
 Run on a new Mac and get ready for awesomeness!
 
+#### Brew
+- bash-completion
+- git
+- git-flow
+- heroku-toolbelt
+- postgresql
+
+#### Cask
+- atom
+- blender
+- dropbox
+- google-chrome
+- iterm2
+- macvim
+- pgadmin3
+- postman
+- slack
+- spectacle
+- sourcetree
+- unity
+- vagrant
+- virtualbox
+- virtualbox-extension-pack
 
 
 ## Symlinks
