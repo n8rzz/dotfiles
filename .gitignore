@@ -9,3 +9,6 @@ atom/packages
 atom/recovery
 atom/split-diff
 atom/storage
+
+!atom/.apm/package-sync
+!atom/packages/package-sync
