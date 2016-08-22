@@ -21,7 +21,7 @@ addons:
     - shellcheck
 
 script:
- - bash -c 'shopt -s globstar; shellcheck **/*.sh'
+ - shellcheck **/*.sh'
  #   - shellcheck make_it_awesome.sh
  #   - shellcheck make_symlinks.sh
 
