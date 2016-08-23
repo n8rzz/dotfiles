@@ -47,10 +47,10 @@ gem install bundler rails
 # export N_PREFIX=$HOME/.node
 # export PATH=$N_PREFIX/bin:$PATH
 #
-# mkdir -p "$N_PREFIX/bin"
-# curl -o "$N_PREFIX/bin/n https://raw.githubusercontent.com/visionmedia/n/master/bin/n"
-# chmod +x "$N_PREFIX/bin/n"
-# n stable
-#
+mkdir -p "$N_PREFIX/bin"
+curl -o "$N_PREFIX/bin/n https://raw.githubusercontent.com/visionmedia/n/master/bin/n"
+chmod +x "$N_PREFIX/bin/n"
+n stable
+
 # # npm pacakges
-# npm install -g bower generator-generator gulp http-server kama-cli node-sass yo
+npm install -g bower generator-generator gulp http-server kama-cli node-sass yo
