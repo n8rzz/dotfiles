@@ -78,11 +78,10 @@ alias sgc='git config user.name "Nate Geslin" && git config user.email teamtomki
 # Tab completion
 if [[ ("$OSTYPE" =~ ^darwin) && (-f $(brew --prefix)/etc/bash_completion) ]]; then
   # shellcheck source=/dev/null
-  "$(brew --prefix)/etc/bash_completion"
+  . $(brew --prefix)/etc/bash_completion
 
   # add aliased git commands here to be recognized by tab complete
   __git_complete gco _git_checkout
-  __git_complete gpl _git_pull
 fi
 
 # Git branch name in prompt.

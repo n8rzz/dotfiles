@@ -48,6 +48,10 @@
     userId: "dd53f269-1c01-911f-dd06-c480abce5c93"
   "file-icons":
     forceShow: true
+  "git-blame":
+    ignoreWhiteSpaceDiffs: true
+  "git-diff":
+    showIconsInEditorGutter: true
   "highlight-selected": {}
   "js-hyperclick":
     extensions: [
