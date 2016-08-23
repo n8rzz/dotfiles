@@ -8,11 +8,6 @@
 #                then setup system with baseline applications and folders.
 #  -------------------------------------------------------------------------
 
-# Install rvm and ruby
-rvm / ruby / bundler
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-curl -sSL https://get.rvm.io | bash -s stable --ruby
-
 # setup brew if it doesnt exist
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
@@ -20,11 +15,14 @@ if ! command -v brew >/dev/null; then
       'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
 fi
 
+# Brew and Cask install
 brew tap homebrew/bundle
 brew bundle
 
-# dotfiles
-git clone https://github.com/n8rzz/dotfiles.git ~/
+# Install rvm and ruby
+rvm / ruby / bundler
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+curl -sSL https://get.rvm.io | bash -s stable --ruby
 
 # Setup local dev folders
 mkdir ~/Documents/www
@@ -41,16 +39,10 @@ apm link ~/Documents/www/ss-orca-ui
 gem install bundler rails
 
 # Install n and node + npm
-# BASE="$HOME"
-# NODE_DIR="$BASE/.node"
-#
-# export N_PREFIX=$HOME/.node
-# export PATH=$N_PREFIX/bin:$PATH
-#
 mkdir -p "$N_PREFIX/bin"
 curl -o "$N_PREFIX/bin/n https://raw.githubusercontent.com/visionmedia/n/master/bin/n"
 chmod +x "$N_PREFIX/bin/n"
 n stable
 
-# # npm pacakges
+# npm pacakges
 npm install -g bower generator-generator gulp http-server kama-cli node-sass yo
