@@ -89,6 +89,7 @@
     layoutMode: "Compact"
   "package-sync":
     createOnChange: true
+    forceOverwrite: true
   "project-manager":
     closeCurrent: true
     sortBy: "title"

@@ -21,33 +21,35 @@
 #  - https://gist.github.com/natelandau/10654137
 #  -------------------------------------------------------------------------
 
+
 #  -------------------------------------------------------------------------
 #  1. Environment Configuration
 #  -------------------------------------------------------------------------
-
 export N_PREFIX=$HOME/.node
 export PATH=$N_PREFIX/bin:$PATH
 ulimit -n 1024
 
 # source ~/.profile
 
-[[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# Load RVM into a shell session *as a function*
+# shellcheck source=/dev/null
+[[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm"  
+# shellcheck source=/dev/null
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 
 #  -------------------------------------------------------------------------
 #  2. ALIASES
 #  -------------------------------------------------------------------------
-
-## Folder Traversal
 alias ll='ls -la'
-cd() { builtin cd "$@"; ls; }
 alias ~='cd ~'
 alias c='clear'
-alias mcd='mkdir -p "$1" && cd $_'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+# cd() { builtin cd "$@"; ls; }
+# alias cd='mkdir -p "$1" && cd $_'
 
 ## Git
 alias gst='clear && git status'
@@ -60,6 +62,7 @@ alias gpo='git pull origin'
 alias gpl='git pull'
 alias gplr='git pull --rebase'
 alias gpu='git push'
+alias gr='git reset HEAD --hard && git clean -f -d'
 # alias gdc=‘git diff --stat --color’
 alias gmff='git merge --no-ff'
 alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
@@ -74,10 +77,12 @@ alias sgc='git config user.name "Nate Geslin" && git config user.email teamtomki
 
 # Tab completion
 if [[ ("$OSTYPE" =~ ^darwin) && (-f $(brew --prefix)/etc/bash_completion) ]]; then
-. $(brew --prefix)/etc/bash_completion
+  # shellcheck source=/dev/null
+  "$(brew --prefix)/etc/bash_completion"
 
   # add aliased git commands here to be recognized by tab complete
   __git_complete gco _git_checkout
+  __git_complete gpl _git_pull
 fi
 
 # Git branch name in prompt.
@@ -100,19 +105,17 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 #  -------------------------------------------------------------------------
 #  5.   Process Management
 #  -------------------------------------------------------------------------
-
-# memHogsTop, memHogsPs:  Find memory hogs
+#  Find memory hogs
 alias memHogsTop='top -l 1 -o rsize | head -20'
 alias memHogsPs='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
 
-# cpuHogs:  Find CPU hogs
+#  cpuHogs:  Find CPU hogs
 alias cpu_hogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
 
 
 #  -------------------------------------------------------------------------
 #  6.   Networking
 #  -------------------------------------------------------------------------
-
 alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address
 alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
 alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
@@ -128,7 +131,6 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 #  -------------------------------------------------------------------------
 #  7.   System Operations & Information
 #  -------------------------------------------------------------------------
-
 # cleanupDS:  Recursively delete .DS_Store files
 alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 
