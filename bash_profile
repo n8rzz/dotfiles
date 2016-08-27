@@ -68,6 +68,10 @@ alias gmff='git merge --no-ff'
 alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
 alias glg2='git log --date-order --all --graph --name-status --format="%C(green)%H%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
 
+## Node & NPM
+alias npmi='npm cache clean && npm install'
+alias npmr='npm run build && npm run test && npm run report'
+
 ## Rails
 alias migrate='rake db:migrate && rake db:migrate RAILS_ENV=test'
 alias reseed='rake db:reset && rake db:migrate && rake db:seed'
