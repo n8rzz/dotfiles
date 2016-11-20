@@ -77,7 +77,12 @@ alias migrate='rake db:migrate && rake db:migrate RAILS_ENV=test'
 alias reseed='rake db:reset && rake db:migrate && rake db:seed'
 
 ## General Utility
-alias sgc='git config user.name "Nate Geslin" && git config user.email teamtomkins23@gamil.com'
+alias sgc='git config user.name "Nate Geslin" && git config user.email teamtomkins23@gmail.com'
+
+## Change commit email for all commits belonging to author
+# git filter-branch -f --commit-filter 'if [ "$GIT_AUTHOR_NAME" = "Nate Geslin"  ];
+#   then export GIT_AUTHOR_NAME="Nate Geslin"; export GIT_AUTHOR_EMAIL=teamtomkins23@gmail.com;
+#   fi; git commit-tree "$@"'
 
 # Tab completion
 if [[ ("$OSTYPE" =~ ^darwin) && (-f $(brew --prefix)/etc/bash_completion) ]]; then

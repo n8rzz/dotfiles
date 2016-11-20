@@ -5,10 +5,18 @@
     triggerAreaSize: 10
   core:
     disabledPackages: [
-      "travis-ci-status"
       "autohide-tree-view"
       "react"
       "linter-rubocop"
+      "linter-shellcheck"
+      "linter-jsonlint"
+      "linter-eslint"
+      "emmet"
+      "language-elm"
+      "language-fsharp"
+      "language-rspec"
+      "linter-write-good"
+      "pigments"
     ]
     excludeVcsIgnoredPaths: false
     ignoredNames: [
@@ -26,6 +34,7 @@
     ]
     openEmptyEditorOnStart: false
     projectHome: "/Users/ngeslin/Documents/www/"
+    telemetryConsent: "no"
     themes: [
       "ss-orca-ui"
       "SS-Orca-Syntax"
@@ -42,7 +51,6 @@
     showIndentGuide: true
     showInvisibles: true
     tabLength: 4
-    tabType: "soft"
   emmet: {}
   "exception-reporting":
     userId: "dd53f269-1c01-911f-dd06-c480abce5c93"
@@ -61,10 +69,10 @@
       ".jsx"
     ]
   "language-babel":
-    createMap: true
+    autoIndentJSX: false
   linter:
     displayLinterStatus: false
-    errorPanelHeight: 90
+    errorPanelHeight: 116
     gutterPosition: "Left"
     showErrorInline: false
     showErrorTabLine: true
@@ -72,13 +80,14 @@
   "linter-eslint":
     disableEslintIgnore: true
     disableFSCache: true
-    eslintrcPath: "./"
     globalNodePath: "/Users/ngeslin/.node"
   "linter-rubocop":
     command: "/Users/ngeslin/.rvm/gems/ruby-2.2.2/bin/rubocop"
   "linter-shellcheck":
     shellcheckExecutablePath: "/usr/local/bin/shellcheck"
   "linter-write-good": {}
+  "markdown-preview":
+    breakOnSingleNewline: true
   "merge-conflicts": {}
   minimap:
     independentMinimapScroll: true
@@ -96,7 +105,7 @@
     forceOverwrite: true
   "project-manager":
     closeCurrent: true
-    sortBy: "title"
+    sortBy: "last modified"
   react: {}
   "spell-check": {}
   "split-diff":
@@ -128,12 +137,19 @@
       "**/build/*"
       "**/coverage/*"
       "**/.nyc_output/*"
+      "**/*bundle.*"
     ]
-    sortAscending: false
-    sortBy: "Type"
+    openListInDirection: "down"
+    showInTable: [
+      "File"
+      "Text"
+      "Type"
+      "Line"
+    ]
+    sortBy: "File"
+    statusBarIndicator: true
   "travis-ci-status": {}
-  "tree-view":
-    squashDirectoryNames: true
+  "tree-view": {}
   "vim-mode": {}
   welcome:
     showOnStartup: false
@@ -141,9 +157,25 @@
   editor:
     preferredLineLength: 120
     tabLength: 4
+".cake.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
 ".coffee.jsx.source":
   editor:
     preferredLineLength: 120
+".cs.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".css.source.styled":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".csx.source":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
 ".html.ruby.text":
   editor:
     preferredLineLength: 120
@@ -151,6 +183,7 @@
 ".ini.source":
   editor:
     preferredLineLength: 120
+    tabLength: 4
 ".js.jsx.source":
   editor:
     preferredLineLength: 120
@@ -158,6 +191,14 @@
 ".js.rails.source source.jquery.js":
   editor:
     preferredLineLength: 120
+    tabLength: 4
+".languagebabel.ttlextension":
+  editor:
+    preferredLineLength: 100
+    tabLength: 4
+".nant-build.source":
+  editor:
+    preferredLineLength: 100
     tabLength: 4
 ".puppet.source":
   editor:
