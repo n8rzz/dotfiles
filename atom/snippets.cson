@@ -20,6 +20,15 @@
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
 '.source.js':
-  'Ava Test':
+  'ava':
     'prefix': 'ava'
-    'body': 'ava(\'$1\', t => {\n\n});'
+    'body': 'ava(\'$1\', (t) => {\n\n});'
+  'throws':
+    'prefix': 't.th'
+    'body': 't.throws(() => $1)'
+  'notThrows':
+    'prefix': 't.not'
+    'body': 't.notThrows(() => $1)'
+  'true':
+    'prefix': 't.true'
+    'body': 't.true($1)'

@@ -1,4 +1,6 @@
 "*":
+  "SS-Orca-ui":
+    layoutMode: "Compact"
   "autohide-tree-view":
     maxWidth: 150
     showOn: "hover + click"
@@ -10,34 +12,32 @@
       "linter-rubocop"
       "linter-shellcheck"
       "linter-jsonlint"
-      "linter-eslint"
       "emmet"
       "language-elm"
       "language-fsharp"
       "language-rspec"
+      "git-control"
+      "bottom-dock"
+      "fast-eslint"
+      "linter-package-json-validator"
       "linter-write-good"
-      "pigments"
     ]
     excludeVcsIgnoredPaths: false
     ignoredNames: [
-      ".git"
       ".hg"
       ".svn"
       ".DS_Store"
+      "._*"
       "Thumbs.db"
-      "bower_components"
       "node_modules"
-      "logs"
-      ".nyc_output"
-      "documentation"
-      "coverage"
+      ".git"
     ]
     openEmptyEditorOnStart: false
     projectHome: "/Users/ngeslin/Documents/www/"
     telemetryConsent: "no"
     themes: [
       "ss-orca-ui"
-      "SS-Orca-Syntax"
+      "ss-orca-syntax"
     ]
   docblockr:
     auto_add_method_tag: true
@@ -89,6 +89,10 @@
   "markdown-preview":
     breakOnSingleNewline: true
   "merge-conflicts": {}
+  "metro-ui":
+    displayMode: "Compact"
+    fullscreenStatusBar: true
+    themeAccentColor: "#0763d8"
   minimap:
     independentMinimapScroll: true
     plugins:
@@ -98,21 +102,31 @@
       "highlight-selectedDecorationsZIndex": 0
       "minimap-autohide": true
       "minimap-autohideDecorationsZIndex": 0
+  "northem-dark-atom-ui": {}
   "one-dark-ui":
     layoutMode: "Compact"
   "package-sync":
     createOnChange: true
     forceOverwrite: true
+  pigments:
+    mergeColorDuplicates: true
+    sortPaletteColors: "by name"
   "project-manager":
     closeCurrent: true
     sortBy: "last modified"
+  punchclock: {}
   react: {}
+  "seti-ui":
+    compactView: true
+    disableAnimations: true
+    fileIcons: false
   "spell-check": {}
   "split-diff":
     diffWords: true
     ignoreWhitespace: true
     leftEditorColor: "red"
     rightEditorColor: "green"
+    scrollSyncType: "Vertical + Horizontal"
     syncHorizontalScroll: true
   "terminal-plus":
     core: {}
@@ -153,6 +167,11 @@
   "vim-mode": {}
   welcome:
     showOnStartup: false
+  zentabs:
+    maximumOpenedTabs: 7
+    neverCloseDirty: true
+    neverCloseNew: true
+    neverCloseUnsaved: true
 ".babel.regexp.source":
   editor:
     preferredLineLength: 120

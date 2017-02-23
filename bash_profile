@@ -27,7 +27,7 @@
 #  -------------------------------------------------------------------------
 export N_PREFIX=$HOME/.node
 export PATH=$N_PREFIX/bin:$PATH
-ulimit -n 1024
+ulimit -n 10480
 
 # source ~/.profile
 

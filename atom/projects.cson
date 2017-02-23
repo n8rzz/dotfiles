@@ -16,6 +16,7 @@
     paths: [
       "/Users/ngeslin/Dropbox/Apps/Atom/syntax/ss-orca-syntax"
       "/Users/ngeslin/Dropbox/Apps/Atom/ui/ss-orca-ui"
+      "/Users/ngeslin/Dropbox/Apps/Atom/ui/ss-sea-turtle-ui"
     ]
   }
   {
@@ -53,6 +54,18 @@
     title: "Atc"
     paths: [
       "/Users/ngeslin/Documents/www/atc"
+    ]
+  }
+  {
+    title: "INFOR.styleguide-react-bootstrap"
+    paths: [
+      "/Users/ngeslin/Documents/www/INFOR.styleguide-react-bootstrap"
+    ]
+  }
+  {
+    title: "Openscope"
+    paths: [
+      "/Users/ngeslin/Documents/www/openscope"
     ]
   }
 ]
