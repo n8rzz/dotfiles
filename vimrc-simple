@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Filename: .vimrc
+" Filename: .vimrc-simple
 " Maintainer: Nate Geslin  <teamtomkins23@gmail.com>
 " URL: http://github.com/n8rzz/dotfiles
 "
@@ -12,7 +12,7 @@
 "   02. Events .................. General autocmd events
 "   03. Formatting/Layout ....... Text, tab, indentation related
 "   04. Vim UI .................. User interface behavior
-"   05. Theme/Colors ............ Colors, fonts, etc.
+"   05. Syntax .................. Colors, fonts, etc.
 "   06. Key Mappings ............ Commands mapped to keys
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -27,16 +27,12 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'JazzCore/ctrlp-cmatcher'
 Plugin 'ervandew/supertab'
 Plugin 'bling/vim-bufferline'
-" Plugin 'bling/vim-airline'
-" Plugin 'itchyny/lightline.vim'   https://github.com/itchyny/lightline.vim
+Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-" Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-repeat'
-" Plugin 'SirVer/ultisnips'
 Plugin 'tomtom/tcomment_vim'
 
 " Syntax
@@ -45,25 +41,24 @@ Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'editorconfig/editorconfig-vim'
-" Plugin 'mattn/emmet-vim'
 
-" Languages
-" Plugin 'JulesWang/css.vim'
-" Plugin 'cakebaker/scss-syntax.vim'
-" Plugin 'pangloss/vim-javascript'
-" Plugin 'isRuslan/vim-es6'
-" Plugin 'mxw/vim-jsx'
-" Plugin 'elzr/vim-json'
-" Plugin 'ap/vim-css-color'
+" Language
+Plugin 'JulesWang/css.vim'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'isRuslan/vim-es6'
+Plugin 'mxw/vim-jsx'
+Plugin 'elzr/vim-json'
+Plugin 'ap/vim-css-color'
 
 " Ruby / Rails
 Plugin 'vim-ruby/vim-ruby'
-" Plugin 'tpope/vim-rails'
-" Plugin 'thoughtbot/vim-rspec'
-" Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-rails'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-endwise'
 
-" Theme / Colors
-" Plugin 'geoffharcourt/one-dark.vim'
+" Syntax
+Plugin 'tyrannicaltoucan/vim-deep-space'
 
 " Dependencies
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -90,20 +85,20 @@ let g:gitgutter_realtime = 0
 
 " scrooloose/syntastic
 """""""""""
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_error_symbol = '✗'
-" let g:syntastic_html_checkers = []
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_style_error_symbol = 'x'
-" let g:syntastic_style_warning_symbol = '!'
-" let g:syntastic_warning_symbol = '!'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_html_checkers = []
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_style_error_symbol = 'x'
+let g:syntastic_style_warning_symbol = '!'
+let g:syntastic_warning_symbol = '!'
 
 " kien/ctrlp.vim
 """""""""""
@@ -116,6 +111,10 @@ let g:indent_guides_start_level = 3
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
+" bling/vim-airline
+" tyrannicaltoucan/vim-deep-space
+"""""""""""
+let g:airline_theme='deep_space'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 01. General
@@ -148,7 +147,6 @@ set shiftwidth=2                              " indent/outdent by 2 columns
 set shiftround                                " always indent/outdent to the nearest tabstop
 set smartindent                               " automatically insert one extra level of indentation
 set smarttab                                  " use tabs at the start of a line, spaces elsewhere
-" set splitright                                " Default to split
 
 if has("autocmd")
   " Enable filetype plugin
@@ -197,11 +195,17 @@ set smartcase                                 " ... unless they contain at least
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 set title                                     " show filename in window titlebar
 set visualbell                                " disable audio warnings
+let &showbreak='└ '
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 05. Themes/Colors
+" 05. Syntax
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let &showbreak='└ '
+syntax on
+
+set t_Co=256
+set background=dark
+
+colorscheme deep-space
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 06 Key Mappings

@@ -15,23 +15,29 @@ olddir=~/dotfiles_old             # old dotfiles backup directory
 files="vimrc bash_profile railsrc gemrc gitignore eslintrc"    # list of files/folders to symlink in homedir
 ##########
 
-# create dotfiles_old in homedir
-echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
-echo "...done"
+create_dotfiles_copy () {
+  # create dotfiles_old in homedir
+  echo "Creating $olddir for backup of any existing dotfiles in ~"
+  mkdir -p $olddir
+  echo "...done"
+}
 
-# change to the dotfiles directory
-echo "Changing to $dir directory"
-cd $dir || exit
-echo "...done"
+move_to_dest_dir () {
+  # change to the dotfiles directory
+  echo "Changing to $dir directory"
+  cd $dir || exit
+  echo "...done"
+}
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
-for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/".$file" ~/dotfiles_old/
-    echo "Creating symlink to $file in home directory."
-    ln -s "$dir/$file" ~/".$file"
-done
+create_symlinks () {
+  # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
+  for file in $files; do
+      echo "Moving any existing dotfiles from ~ to $olddir"
+      mv ~/".$file" ~/dotfiles_old/
+      echo "Creating symlink to $file in home directory."
+      ln -s "$dir/$file" ~/".$file"
+  done
+}
 
 install_vundle () {
   if [[ ! -d ~/.vim || ! -d .vim ]]; then
@@ -46,9 +52,6 @@ install_vim_plugins () {
   vim +PluginInstall +qall
   echo "...done"
 }
-
-install_vundle
-install_vim_plugins
 
 while [ $# -gt 0  ]; do
   key="$1"
@@ -71,9 +74,18 @@ while [ $# -gt 0  ]; do
       echo "Creating symlink for simplified .vimrc from $dir to ~/.vimrc"
       ln -s $dir/vimrc-simple ~/.vimrc
 
+      install_vundle
+      install_vim_plugins
+
       shift
       ;;
     *)
+      create_dotfiles_copy
+      move_to_dest_dir
+      create_symlinks
+      install_vundle
+      install_vim_plugins
+
       shift
       ;;
   esac
