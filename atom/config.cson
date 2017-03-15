@@ -21,6 +21,7 @@
       "fast-eslint"
       "linter-package-json-validator"
       "linter-write-good"
+      "vim-mode"
     ]
     excludeVcsIgnoredPaths: false
     ignoredNames: [
@@ -165,6 +166,11 @@
   "travis-ci-status": {}
   "tree-view": {}
   "vim-mode": {}
+  "vim-mode-plus":
+    statusBarModeStringStyle: "long"
+    stayOnDelete: true
+    stayOnYank: true
+    useClipboardAsDefaultRegister: true
   welcome:
     showOnStartup: false
   zentabs:

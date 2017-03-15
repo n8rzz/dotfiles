@@ -37,6 +37,7 @@ ulimit -n 10480
 # shellcheck source=/dev/null
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+if [ -e /Users/ngeslin/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/ngeslin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 #  -------------------------------------------------------------------------
 #  2. ALIASES

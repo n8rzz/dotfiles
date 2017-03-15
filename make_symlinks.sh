@@ -67,6 +67,12 @@ while [ $# -gt 0  ]; do
       # fi
       shift
       ;;
+    -vs|--vim-simple)
+      echo "Creating symlink for simplified .vimrc from $dir to ~/.vimrc"
+      ln -s $dir/vimrc-simple ~/.vimrc
+
+      shift
+      ;;
     *)
       shift
       ;;

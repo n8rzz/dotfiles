@@ -1,6 +1,7 @@
 packages: [
   "autocomplete-js-import"
   "bottom-dock"
+  "busy-signal"
   "docblockr"
   "editorconfig"
   "emmet"
@@ -11,6 +12,7 @@ packages: [
   "git-time-machine"
   "highlight-selected"
   "hyperclick"
+  "intentions"
   "js-hyperclick"
   "json-converter"
   "jsonlint"
@@ -27,6 +29,7 @@ packages: [
   "linter-rubocop"
   "linter-shellcheck"
   "linter-stylelint"
+  "linter-ui-default"
   "linter-write-good"
   "merge-conflicts"
   "open-recent"
@@ -47,5 +50,6 @@ packages: [
   "todo-show"
   "tree-view-copy-relative-path"
   "vim-mode"
+  "vim-mode-plus"
   "zentabs"
 ]
