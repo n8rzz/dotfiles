@@ -32,6 +32,7 @@ packages: [
   "linter-ui-default"
   "linter-write-good"
   "merge-conflicts"
+  "no-compromise-ui"
   "open-recent"
   "package-sync"
   "pigments"

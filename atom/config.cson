@@ -86,6 +86,8 @@
     command: "/Users/ngeslin/.rvm/gems/ruby-2.2.2/bin/rubocop"
   "linter-shellcheck":
     shellcheckExecutablePath: "/usr/local/bin/shellcheck"
+  "linter-ui-default":
+    showPanel: true
   "linter-write-good": {}
   "markdown-preview":
     breakOnSingleNewline: true
