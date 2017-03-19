@@ -59,6 +59,7 @@ Plugin 'tpope/vim-endwise'
 
 " Syntax
 Plugin 'tyrannicaltoucan/vim-deep-space'
+Plugin 'tomasiser/vim-code-dark'
 
 " Dependencies
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -114,7 +115,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 " bling/vim-airline
 " tyrannicaltoucan/vim-deep-space
 """""""""""
-let g:airline_theme='deep_space'
+" let g:airline_theme='deep_space'
+let g:airline_theme='codedark'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 01. General
@@ -202,10 +204,11 @@ let &showbreak='└ '
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 
-set t_Co=256
 set background=dark
-
-colorscheme deep-space
+set t_Co=256
+set t_ut=
+" colorscheme deep-space
+colorscheme codedark 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 06 Key Mappings

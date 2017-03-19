@@ -12,7 +12,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="vimrc bash_profile railsrc gemrc gitignore eslintrc"    # list of files/folders to symlink in homedir
+files="vimrc tmux.conf bash_profile railsrc gemrc gitignore eslintrc"    # list of files/folders to symlink in homedir
 ##########
 
 # create dotfiles_old in homedir
