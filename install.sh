@@ -65,7 +65,7 @@ create_link_to_dotfile () {
         echo ""
         echo "--- --- FILENAME: $file"
 
-        create_backup_of_original_dotfile $file
+        create_backup_of_original_dotfile "$file"
 
         echo "${GREEN}::: Creating symlink in home directory from ~/dotfiles/$file to $file${NC}"
 
@@ -81,13 +81,10 @@ echo ""
 echo ""
 echo ""
 PS3=$'\n'"Select an item to install: "
-options=("Quit" "vim/tmux" "rc files" "vimrc" "vim plugins" "vundle" "tmux" "bash" "bash_alias" "bash_profile" "railsrc" "gemrc")
+options=("vim/tmux" "rc files" "vimrc" "vim plugins" "vundle" "tmux" "bash" "bash_alias" "bash_profile" "railsrc" "gemrc" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "Quit")
-            break
-            ;;
         "vim/tmux")
             install_vundle
             install_vim_plugins
@@ -127,6 +124,9 @@ do
             ;;
         "gemrc")
             create_link_to_dotfile "gemrc"
+            ;;
+        "Quit")
+            break
             ;;
         *) echo invalid option;;
     esac
