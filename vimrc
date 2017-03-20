@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Filename: .vimrc                                                         
+" Filename: .vimrc-simple
 " Maintainer: Nate Geslin  <teamtomkins23@gmail.com>
 " URL: http://github.com/n8rzz/dotfiles
 "
@@ -12,7 +12,7 @@
 "   02. Events .................. General autocmd events
 "   03. Formatting/Layout ....... Text, tab, indentation related
 "   04. Vim UI .................. User interface behavior
-"   05. Theme/Colors ............ Colors, fonts, etc.
+"   05. Syntax .................. Colors, fonts, etc.
 "   06. Key Mappings ............ Commands mapped to keys
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -27,16 +27,12 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
-" Plugin 'JazzCore/ctrlp-cmatcher'
 Plugin 'ervandew/supertab'
 Plugin 'bling/vim-bufferline'
 Plugin 'bling/vim-airline'
-" Plugin 'itchyny/lightline.vim'   https://github.com/itchyny/lightline.vim
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-repeat'
-" Plugin 'SirVer/ultisnips'
 Plugin 'tomtom/tcomment_vim'
 
 " Syntax
@@ -45,10 +41,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'mattn/emmet-vim'
 
-" Languages
-Plugin 'JulesWang/css.vim' 
+" Language
+Plugin 'JulesWang/css.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'isRuslan/vim-es6'
@@ -62,14 +57,13 @@ Plugin 'tpope/vim-rails'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-endwise'
 
-" Theme / Colors
-Plugin 'geoffharcourt/one-dark.vim'
+" Syntax
+Plugin 'tyrannicaltoucan/vim-deep-space'
+Plugin 'tomasiser/vim-code-dark'
 
 " Dependencies
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-
-" Plugins Not in Use
 
 call vundle#end()
 
@@ -81,7 +75,7 @@ call vundle#end()
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeIgnore = ['\.swp$', '\.swo$', '.git$', '.idea$']
 let g:NERDTreeShowHidden = 1
-let g:NERDTreeWinSize = 35 
+let g:NERDTreeWinSize = 35
 
 " airblade/vim-gitgutter
 """""""""""
@@ -107,46 +101,24 @@ let g:syntastic_style_error_symbol = 'x'
 let g:syntastic_style_warning_symbol = '!'
 let g:syntastic_warning_symbol = '!'
 
-" bling/vim-airline
-""""""""""""
-let g:airline_theme='bubblegum'
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-
 " kien/ctrlp.vim
 """""""""""
 let g:ctrlp_max_files = 10000
 let g:ctrlp_custom_ignore = { 'dir':'\v[\/](\.git|\.hg|\.svn|docs|node_modules|puphpet|vendor)$', 'file':'\v\.(dll|exe|so|swp)$' }
 
-" thoughtbot/vim-rspec
-"""""""""""
-let g:rspec_runner = 'os_x_iterm2'
-
 " nathanaelkane/vim-indent-guides
 """""""""""
-let g:indent_guides_start_level = 3 
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
-" pangloss/vim-javascipt
+" bling/vim-airline
 """""""""""
-let g:javascript_enable_domhtmlcss = 1
-
-" mxw/vim-js
-"""""""""""
-let g:jsx_ext_required = 0
-
-
-"""""""""""
-let g:javascript_doc = 'yuidoc'
-
-
-"""""""""""
-" let g:markdown_fenced_languages = ['css', 'html', 'less', 'javascript', 'js=javascript', 'json=javascript', 'sass', 'scss', 'xml']
+let g:airline_theme='codedark'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 01. General                                                               
+" 01. General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on                     " load file type plugins + indentation
 set autoread
@@ -176,7 +148,6 @@ set shiftwidth=2                              " indent/outdent by 2 columns
 set shiftround                                " always indent/outdent to the nearest tabstop
 set smartindent                               " automatically insert one extra level of indentation
 set smarttab                                  " use tabs at the start of a line, spaces elsewhere
-" set splitright                                " Default to split
 
 if has("autocmd")
   " Enable filetype plugin
@@ -198,7 +169,7 @@ if has("autocmd")
   " Enable emmet for JavaScript and CSS files
   " autocmd FileType html,css EmmetInstall
   " Indentation for CSS files
-  " autocmd BufNewFile,BufRead *.css,*.html,*.js,*.jsx,*.json,*.py 
+  " autocmd BufNewFile,BufRead *.css,*.html,*.js,*.jsx,*.json,*.py
   autocmd FileType ruby setlocal sw=2 ts=2 sts=2
   autocmd Filetype html setlocal ts=4 sw=4 expandtab
   autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
@@ -208,7 +179,7 @@ if has("autocmd")
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 04. Vim UI                                                                 
+" 04. Vim UI
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set cmdheight=2                               " height of the command bar
 set cul                                       " highlight current line
@@ -225,19 +196,24 @@ set smartcase                                 " ... unless they contain at least
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 set title                                     " show filename in window titlebar
 set visualbell                                " disable audio warnings
+let &showbreak='└ '
+" set cursorcolumn
+" set cursorline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 05. Themes/Colors
+" 05. Syntax
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
-syntax enable
-color onedark
-let &showbreak='└ '
+
+set background=dark
+set t_Co=256
+set t_ut=
+colorscheme codedark 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 06 Key Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Fast saving  
+" Fast saving
 nmap <leader>W :w!<cr>
 
 " Toggle NERDTree
@@ -247,7 +223,7 @@ nnoremap <Leader>H <C-W>h<CR>
 " Move to right window
 nnoremap <Leader>L <C-W>l<CR>
 
-" This replaces :tabnew 
+" This replaces :tabnew
 nmap <leader>T :enew<cr>
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
@@ -259,12 +235,6 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 nmap <leader>bl :ls<CR>
 " Close all bufers
 nmap <leader>bqa :bufdo bd<CR>
-
-" RSpec.vim mappings
-map <Leader>spec :call RunCurrentSpecFile()<CR>
-map <Leader>nspec :call RunNearestSpec()<CR>
-map <Leader>lspec :call RunLastSpec()<CR>
-map <Leader>aspec :call RunAllSpecs()<CR>
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann

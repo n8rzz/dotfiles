@@ -10,7 +10,6 @@
       "autohide-tree-view"
       "react"
       "linter-rubocop"
-      "linter-shellcheck"
       "linter-jsonlint"
       "emmet"
       "language-elm"
