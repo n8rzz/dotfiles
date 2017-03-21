@@ -8,7 +8,9 @@
 #  Description:  Provide an interface for which to install various
 #                dotfiles and utilities
 #
-#  Inspired by:
+#  Usage: from the home directory run `bash ~/dotfiles/install.sh`
+#
+#  Selection UI inspired by:
 #  - http://askubuntu.com/questions/1705/how-can-i-create-a-select-menu-in-a-shell-script
 #  -------------------------------------------------------------------------
 
@@ -18,6 +20,7 @@ YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 dir=~/dotfiles                        # dotfiles directory
 backup_dir=~/dotfiles_old             # old dotfiles backup directory
+atomDir=~/.atom                       # atom configuration directory
 
 initialize () {
     clear
@@ -33,7 +36,7 @@ create_backup_dir () {
 
 install_vundle () {
   if [[ ! -d ~/.vim || ! -d ~/.vim/bundle ]]; then
-    echo "${YELLOW}::: Vundle not installed.  Installing Vundle...${NC}"
+    echo "${YELLOW}::: Vundle not installed, installing Vundle${NC}"
 
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   else
@@ -42,16 +45,30 @@ install_vundle () {
 }
 
 install_vim_plugins () {
-  echo "${GREEN}::: Installing VIM plugins...${NC}"
+  echo "${GREEN}::: Installing VIM plugins${NC}"
 
   vim +PluginInstall +qall
+}
+
+copy_atom_dir () {
+  shouldOverwrite=$1
+
+  if [ -d $atomDir ] && [ $shouldOverwrite ]; then
+      echo "${YELLOW}::: $atomDir already exists, removing dir before copy${NC}"
+
+      rm -rf $atomDir
+  fi
+
+  echo "${GREEN}::: Copying Atom directory${NC}"
+
+  cp -r $dir/'atom' $atomDir
 }
 
 create_backup_of_original_dotfile () {
     file=$1
 
     if [[ ! -e ~/."$file" ]]; then
-        echo "${RED}::: $file File not found, no copy made ${NC}"
+        echo "${YELLOW}::: $file File not found, no backup copy made ${NC}"
         return
     fi
 
@@ -73,6 +90,26 @@ create_link_to_dotfile () {
     done
 }
 
+remove_atom_dir () {
+  if [[ ! -d $atomDir ]]; then
+    echo "${YELLOW}::: $atomDir does not exist, nothing to remove${NC}"
+  fi
+}
+
+remove_all_symlinks () {
+  fileList=("vimrc" "tmux" "bash_aliases" "bash_profile" "railsrc" "gemrc")
+
+  for file in "${fileList[@]}"; do
+    if [[ ! -L ~/."$file" ]]; then
+      continue
+    fi
+
+    echo "${RED}::: Removing $file from ~/dotfiles/$file${NC}"
+
+    rm ~/."$file"
+  done
+}
+
 initialize
 create_backup_dir
 
@@ -81,10 +118,13 @@ echo ""
 echo ""
 echo ""
 PS3=$'\n'"Select an item to install: "
-options=("vim/tmux" "rc files" "vimrc" "vim plugins" "vundle" "tmux" "bash" "bash_alias" "bash_profile" "railsrc" "gemrc" "Quit")
+options=("atom" "vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "tmux" "bash_aliases" "bash_profile" "railsrc" "gemrc" "REMOVE ALL" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
+        "atom")
+            copy_atom_dir true
+            ;;
         "vim/tmux")
             install_vundle
             install_vim_plugins
@@ -92,13 +132,14 @@ do
             create_link_to_dotfile "vimrc"
             create_link_to_dotfile "tmux.conf"
             ;;
+        "bash")
+            create_link_to_dotfile "bash_aliases"
+            create_link_to_dotfile "bash_profile"
+            ;;
         "rc files")
             create_link_to_dotfile "vimrc"
             create_link_to_dotfile "railsrc"
             create_link_to_dotfile "gemrc"
-            ;;
-        "vimrc")
-            create_link_to_dotfile "vimrc"
             ;;
         "vim plugins")
             install_vim_plugins
@@ -106,12 +147,11 @@ do
         "vundle")
             install_vundle
             ;;
+        "vimrc")
+            create_link_to_dotfile "vimrc"
+            ;;
         "tmux")
             create_link_to_dotfile "tmux.conf"
-            ;;
-        "bash")
-            create_link_to_dotfile "bash_alias"
-            create_link_to_dotfile "bash_profile"
             ;;
         "bash_alias")
             create_link_to_dotfile "bash_alias"
@@ -124,6 +164,10 @@ do
             ;;
         "gemrc")
             create_link_to_dotfile "gemrc"
+            ;;
+        "REMOVE ALL")
+            remove_atom_dir
+            remove_all_symlinks
             ;;
         "Quit")
             break
