@@ -162,7 +162,7 @@
       "Type"
       "Line"
     ]
-    sortBy: "File"
+    sortBy: "Type"
     statusBarIndicator: true
   "travis-ci-status": {}
   "tree-view": {}

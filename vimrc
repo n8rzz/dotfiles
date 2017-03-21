@@ -27,6 +27,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ervandew/supertab'
 Plugin 'bling/vim-bufferline'
 Plugin 'bling/vim-airline'
@@ -76,6 +77,17 @@ let g:NERDTreeChDirMode = 2
 let g:NERDTreeIgnore = ['\.swp$', '\.swo$', '.git$', '.idea$']
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 35
+
+" terryma/vim-multiple-cursors
+"""""""""""
+
+" Default mapping
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<S-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
 
 " airblade/vim-gitgutter
 """""""""""
@@ -189,16 +201,17 @@ set ignorecase                                " Make searches case-insensitive.
 set laststatus=2                              " last window always has a statusline
 set nohlsearch                                " Don't continue to highlight searched phrases.
 set number                                    " show line numbers
-set numberwidth=6                             " make the number gutter 6 characters wide
+set numberwidth=6                             " set gutter width by number of characters
 set ruler                                     " Always show info along bottom.
 set showmatch                                 " show matching bracket
 set smartcase                                 " ... unless they contain at least one capital letter
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 set title                                     " show filename in window titlebar
 set visualbell                                " disable audio warnings
-let &showbreak='└ '
+set relativenumber                            " show line numbers relative to cursor position
+set number                                    " show actual line number for cursor line
+let &showbreak='└ '                           " set line break symbol
 " set cursorcolumn
-" set cursorline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 05. Syntax
