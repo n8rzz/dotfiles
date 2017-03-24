@@ -44,7 +44,7 @@
     extra_tags_go_after: true
     lower_case_primitives: true
   editor:
-    fontSize: 11
+    fontSize: 12
     invisibles: {}
     preferredLineLength: 100
     scrollPastEnd: true
