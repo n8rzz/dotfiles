@@ -35,6 +35,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-repeat'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'wesQ3/vim-windowswap'
 
 " Syntax
 Plugin 'scrooloose/syntastic'

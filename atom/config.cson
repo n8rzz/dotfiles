@@ -70,13 +70,7 @@
     ]
   "language-babel":
     autoIndentJSX: false
-  linter:
-    displayLinterStatus: false
-    errorPanelHeight: 116
-    gutterPosition: "Left"
-    showErrorInline: false
-    showErrorTabLine: true
-    underlineIssues: false
+  linter: {}
   "linter-eslint":
     disableEslintIgnore: true
     disableFSCache: true
