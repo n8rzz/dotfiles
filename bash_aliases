@@ -19,6 +19,10 @@ alias .....='cd ../../../..'
 # cd() { builtin cd "$@"; ls;  }
 # alias cd='mkdir -p "$1" && cd $_'
 
+## Tmux
+alias tls='tmux ls'
+alias ta='tmux attach-session -t'
+
 ## Git
 alias gst='clear && git status'
 alias gco='git checkout'

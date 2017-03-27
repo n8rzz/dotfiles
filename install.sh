@@ -153,8 +153,8 @@ do
         "tmux")
             create_link_to_dotfile "tmux.conf"
             ;;
-        "bash_alias")
-            create_link_to_dotfile "bash_alias"
+        "bash_aliases")
+            create_link_to_dotfile "bash_aliases"
             ;;
         "bash_profile")
             create_link_to_dotfile "bash_profile"

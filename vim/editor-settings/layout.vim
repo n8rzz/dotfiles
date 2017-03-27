@@ -19,6 +19,7 @@ if has("autocmd")
   " filetype plugin on
   " Enable file type detection
   filetype on
+  autocmd VimEnter * :DoShowMarks!
   " Treat .json files as .js
   autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
   autocmd BufNewFile,BufRead *.es6 setfiletype javascript syntax=javascript

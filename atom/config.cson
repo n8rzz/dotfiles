@@ -44,7 +44,7 @@
     extra_tags_go_after: true
     lower_case_primitives: true
   editor:
-    fontSize: 12
+    fontSize: 11
     invisibles: {}
     preferredLineLength: 100
     scrollPastEnd: true
@@ -80,6 +80,7 @@
   "linter-shellcheck":
     shellcheckExecutablePath: "/usr/local/bin/shellcheck"
   "linter-ui-default":
+    panelHeight: 115
     showPanel: true
   "linter-write-good": {}
   "markdown-preview":
