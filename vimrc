@@ -26,8 +26,9 @@ execute 'source ~/dotfiles/vim/plugins.vim'
 " Plugin Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Import settings files
-for f in glob('~/dotfiles/vim/settings/*.vim', 0, 1)
-    execute 'source' f
+let vimsettings = '~/.vim/settings'
+for f in split(globpath(vimsettings, '*.vim', '\n'))
+    exe 'source' f
 endfor
 
 

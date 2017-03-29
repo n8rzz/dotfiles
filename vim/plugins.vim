@@ -17,7 +17,6 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'jacquesbh/vim-showmarks'
 Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-session'
 Plugin 'majutsushi/tagbar'
 
 " Syntax
