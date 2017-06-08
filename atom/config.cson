@@ -72,7 +72,6 @@
     autoIndentJSX: false
   linter: {}
   "linter-eslint":
-    disableEslintIgnore: true
     disableFSCache: true
     globalNodePath: "/Users/ngeslin/.node"
   "linter-rubocop":
@@ -80,8 +79,14 @@
   "linter-shellcheck":
     shellcheckExecutablePath: "/usr/local/bin/shellcheck"
   "linter-ui-default":
-    panelHeight: 115
+    decorateOnTreeView: "Files and Directories"
+    gutterPosition: "Left"
+    panelHeight: 54
+    panelRepresents: "Current Line"
     showPanel: true
+    showTooltip: false
+    statusBarClickBehavior: "Toggle Status Bar Scope"
+    tooltipFollows: "Mouse"
   "linter-write-good": {}
   "markdown-preview":
     breakOnSingleNewline: true

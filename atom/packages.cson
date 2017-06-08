@@ -1,4 +1,6 @@
 packages: [
+  "angularjs"
+  "atom-typescript"
   "autocomplete-js-import"
   "bottom-dock"
   "busy-signal"

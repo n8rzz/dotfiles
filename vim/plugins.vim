@@ -18,6 +18,7 @@ Plugin 'wesQ3/vim-windowswap'
 Plugin 'jacquesbh/vim-showmarks'
 Plugin 'xolox/vim-misc'
 Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/gitignore'
 
 " Syntax
 Plugin 'scrooloose/syntastic'

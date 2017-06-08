@@ -66,12 +66,19 @@
     title: "Openscope"
     paths: [
       "/Users/ngeslin/Documents/www/openscope"
+      "/Users/ngeslin/Documents/www/quick-assist"
     ]
   }
   {
     title: "SIERRA.TeamSpace"
     paths: [
       "/Users/ngeslin/Documents/www/SIERRA.TeamSpace"
+    ]
+  }
+  {
+    title: "CARGILL"
+    paths: [
+      "/Users/ngeslin/Documents/www/CARGILL"
     ]
   }
 ]

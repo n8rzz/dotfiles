@@ -9,7 +9,6 @@ before_install:
 script:
 
    - shellcheck make_it_awesome.sh
-   - shellcheck make_symlinks.sh
 
 matrix:
   fast_finish: true
