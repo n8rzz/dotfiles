@@ -1,0 +1,4 @@
+{
+    "shell_cmd": "grunt buildStatic && grunt buildMarkup && grunt buildHandlebars",
+    "selector": "text.html.basic"
+}

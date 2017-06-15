@@ -7,8 +7,7 @@ before_install:
   - sudo apt-get install shellcheck
 
 script:
-
-   - shellcheck make_it_awesome.sh
+  - shellcheck make_it_awesome.sh
 
 matrix:
   fast_finish: true

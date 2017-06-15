@@ -81,11 +81,13 @@
   "linter-ui-default":
     decorateOnTreeView: "Files and Directories"
     gutterPosition: "Left"
+    hidePanelWhenEmpty: true
     panelHeight: 54
     panelRepresents: "Current Line"
     showPanel: true
-    showTooltip: false
+    showProviderName: true
     statusBarClickBehavior: "Toggle Status Bar Scope"
+    statusBarRepresents: "Current File"
     tooltipFollows: "Mouse"
   "linter-write-good": {}
   "markdown-preview":
