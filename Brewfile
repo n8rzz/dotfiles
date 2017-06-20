@@ -30,6 +30,7 @@ brew 'heroku-toolbelt'
 brew 'postgresql', restart_service: true
 brew 'shellcheck'
 brew 'tmux'
+brew 'yarn', args: ['ignore-dependencies']
 
 ## Install Cask
 # see - https://github.com/caskroom/homebrew-cask
