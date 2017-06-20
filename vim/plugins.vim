@@ -26,6 +26,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'Quramy/tsuquyomi'
 
 " Language
 Plugin 'JulesWang/css.vim'
