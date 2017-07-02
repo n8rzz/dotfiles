@@ -87,7 +87,6 @@
     showPanel: true
     showProviderName: true
     statusBarClickBehavior: "Toggle Status Bar Scope"
-    statusBarRepresents: "Current File"
     tooltipFollows: "Mouse"
   "linter-write-good": {}
   "markdown-preview":

@@ -28,6 +28,7 @@
 export N_PREFIX=$HOME/.node
 export PATH=$N_PREFIX/bin:$PATH
 # ulimit -n 10480
+export SSL_CERT_FILE=/usr/local/etc/openssl/certs/cacert.pem
 
 # source ~/.profile
 source ~/.bash_aliases
