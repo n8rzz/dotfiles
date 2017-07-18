@@ -9,7 +9,6 @@
     disabledPackages: [
       "autohide-tree-view"
       "react"
-      "linter-rubocop"
       "linter-jsonlint"
       "emmet"
       "language-elm"
@@ -21,6 +20,7 @@
       "linter-package-json-validator"
       "linter-write-good"
       "vim-mode"
+      "linter-rubocop"
     ]
     excludeVcsIgnoredPaths: false
     ignoredNames: [
@@ -131,6 +131,9 @@
     rightEditorColor: "green"
     scrollSyncType: "Vertical + Horizontal"
     syncHorizontalScroll: true
+  tablr:
+    csvEditor:
+      header: true
   "terminal-plus":
     core: {}
     style:

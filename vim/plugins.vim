@@ -5,7 +5,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ervandew/supertab'
 Plugin 'bling/vim-bufferline'
@@ -43,6 +43,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-endwise'
+Plugin 'ngmy/vim-rubocop'
 
 " Syntax
 Plugin 'tyrannicaltoucan/vim-deep-space'
