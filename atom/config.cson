@@ -44,7 +44,7 @@
     extra_tags_go_after: true
     lower_case_primitives: true
   editor:
-    fontSize: 11
+    fontSize: 10
     invisibles: {}
     preferredLineLength: 100
     scrollPastEnd: true
@@ -82,11 +82,12 @@
     decorateOnTreeView: "Files and Directories"
     gutterPosition: "Left"
     hidePanelWhenEmpty: true
-    panelHeight: 54
+    panelHeight: 90
     panelRepresents: "Current Line"
     showPanel: true
     showProviderName: true
     statusBarClickBehavior: "Toggle Status Bar Scope"
+    statusBarRepresents: "Current File"
     tooltipFollows: "Mouse"
   "linter-write-good": {}
   "markdown-preview":

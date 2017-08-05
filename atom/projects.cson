@@ -42,8 +42,6 @@
     title: "INFOR.web.develop"
     paths: [
       "/Users/ngeslin/Documents/www/INFOR.web.develop"
-      "/Users/ngeslin/Documents/www/INFOR.styleguide"
-      "/Users/ngeslin/Documents/www/INFOR.styleguide-react-bootstrap"
     ]
   }
   {
@@ -68,6 +66,7 @@
     title: "Openscope"
     paths: [
       "/Users/ngeslin/Documents/www/openscope"
+      "/Users/ngeslin/Documents/www/openscope-airport-builder"
     ]
   }
   {

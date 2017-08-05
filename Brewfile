@@ -28,6 +28,7 @@ brew 'git'
 brew 'git-flow'
 brew 'heroku-toolbelt'
 brew 'postgresql', restart_service: true
+brew 'ren'
 brew 'shellcheck'
 brew 'tmux'
 brew 'yarn', args: ['ignore-dependencies']
