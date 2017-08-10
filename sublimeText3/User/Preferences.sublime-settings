@@ -1,0 +1,67 @@
+{
+	"always_show_minimap_viewport": true,
+	"auto_close_tags": true,
+	"auto_complete": true,
+	"auto_complete_commit_on_tab": true,
+	"auto_complete_delay": 100,
+	"auto_complete_selector": "source - comment, meta.tag - punctuation.definition.tag.begin",
+	"auto_complete_size_limit": 4194304,
+	"auto_complete_triggers":
+	[
+		{
+			"characters": "<",
+			"selector": "text.html"
+		}
+	],
+	"auto_complete_with_fields": false,
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/User/SublimeLinter/Acai (SL).tmTheme",
+	"default_line_ending": "unix",
+	"detect_indentation": true,
+	"detect_slow_plugins": false,
+	"draw_indent_guides": true,
+	"draw_white_space": "all",
+	"fade_fold_buttons": true,
+	"file_exclude_patterns":
+	[
+		"._*",
+		".DS_Store",
+		"_gsdata_",
+		".sass-cache",
+		".svn",
+		"*/lib-thirdparty"
+	],
+	"fold_buttons": true,
+	"font_size": 11,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"ColorPicker",
+		"CSScomb",
+		"CSScomb JS",
+		"CSSLint",
+		"Grunt",
+		"HexViewer",
+		"jQuery",
+		"SASS Build",
+		"SassBuilder",
+		"SFTP"
+	],
+	"margin": 2,
+	"match_tags": true,
+	"open_files_in_new_window": false,
+	"rulers":
+	[
+		100
+	],
+	"status_bar_brighter": true,
+	"tab_size": 4,
+	"tabs_padding_small": true,
+	"tabs_small": true,
+	"theme": "Afterglow-blue.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"update_check": false,
+	"use_tab_stops": true,
+	"word_wrap": false
+}

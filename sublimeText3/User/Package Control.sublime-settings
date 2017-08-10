@@ -1,0 +1,32 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"Babel",
+		"BracketHighlighter",
+		"Colorsublime",
+		"DocBlockr",
+		"DustBuster",
+		"Emmet",
+		"Git",
+		"GitGutter",
+		"Markdown Preview",
+		"Origami",
+		"Package Control",
+		"Pretty JSON",
+		"React Development Snippets",
+		"SCSS",
+		"SideBarEnhancements",
+		"Sublime Bookmarks",
+		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-json",
+		"SublimeOnSaveBuild",
+		"Theme - Afterglow",
+		"Theme - Spacegray"
+	]
+}
