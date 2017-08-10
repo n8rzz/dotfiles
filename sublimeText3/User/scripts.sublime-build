@@ -1,6 +1,0 @@
-{
-    // "shell_cmd": "gulp scripts",
-    "shell_cmd": "gulp clientJs",
-    // "shell_cmd": "npm run build",
-    "selector": "source.js"
-}
