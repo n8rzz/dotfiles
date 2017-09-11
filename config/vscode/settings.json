@@ -11,14 +11,14 @@
     },
     "editor.quickSuggestionsDelay": 10,
     "editor.renderIndentGuides": true,
+    // "editor.referenceInfos": false,
     "editor.renderWhitespace": "all",
     "eslint.run": "onSave",
     "explorer.autoReveal": false,
-    "files.eol": "\n",
-    "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
-    "gitlens.codeLens.visibility": "off",
-    "gitlens.blame.annotation.activeLine": "inline",
+    "files.insertFinalNewline": true,
+    // "gitlens.codeLens.visibility": "off",
+    // "gitlens.blame.annotation.activeLine": "inline",
     "search.exclude": {
         "**/node_modules": true,
         "**/bower_components": true,
@@ -33,6 +33,5 @@
         "statusBar.background": "#222222",
         "statusBar.foreground": "#c6bf41"
     },
-    "vim.disableAnnoyingNeovimMessage": true
+    "workbench.startupEditor": "none",
 }
-

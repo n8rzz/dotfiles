@@ -11,16 +11,16 @@ update_system() {
   apt-get update
 }
 
-install_guest_additions() {
-  # guest additions
-  apt-get -y install gcc make linux-headers-"$(uname -r)"
-  mount /dev/sr0 /media/cdrom
-  /media/cdrom/VBoxLinuxAdditions.run
-  usermod -g vboxsf "$USER"
-}
+# install_guest_additions() {
+#   # guest additions
+#   apt-get -y install gcc make linux-headers-"$(uname -r)"
+#   mount /dev/sr0 /media/cdrom
+#   /media/cdrom/VBoxLinuxAdditions.run
+#   usermod -g vboxsf "$USER"
+# }
 
 install_additional_pkgs() {
-  apt-get install git vim bash
+  apt-get install git vim bash tmux
 
   # install n
   curl -L https://git.io/n-install | bash
@@ -35,7 +35,7 @@ while [ $# -gt 0  ]; do
     # Updates system and install only guest additions
     -b|--base)
       update_system
-      install_guest_additions
+      # install_guest_additions
 
       shift
       ;;

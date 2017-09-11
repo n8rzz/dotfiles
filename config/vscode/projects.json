@@ -1,0 +1,20 @@
+[
+	{
+		"name": "openscope",
+		"rootPath": "$home/Documents/www/openscope",
+		"paths": [],
+		"group": ""
+	},
+	{
+		"name": "tonka-mining",
+		"rootPath": "$home/Documents/www/tonka-mining",
+		"paths": [],
+		"group": ""
+	},
+	{
+		"name": "gbre",
+		"rootPath": "$home/Documents/www/gbre",
+		"paths": [],
+		"group": ""
+	}
+]
