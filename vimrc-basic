@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Filename: .vimrc
+" Filename: .vimrc-basic
 " Maintainer: Nate Geslin  <teamtomkins23@gmail.com>
 " URL: http://github.com/n8rzz/dotfiles
 "
@@ -20,7 +20,7 @@
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Install Vundle and plugins
-execute 'source ~/dotfiles/vim/plugins.vim'
+execute 'source ~/dotfiles/vim-basic/plugins.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings
@@ -34,7 +34,7 @@ endfor
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 01. General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-execute 'source ~/dotfiles/vim/editor-settings/general.vim'
+execute 'source ~/dotfiles/vim-basic/editor-settings/general.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 02. Events
@@ -43,19 +43,19 @@ execute 'source ~/dotfiles/vim/editor-settings/general.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 03. Formatting/Layout
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-execute 'source ~/dotfiles/vim/editor-settings/layout.vim'
+execute 'source ~/dotfiles/vim-basic/editor-settings/layout.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 04. Vim UI
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-execute 'source ~/dotfiles/vim/editor-settings/ui.vim'
+execute 'source ~/dotfiles/vim-basic/editor-settings/ui.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 05. Syntax
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-execute 'source ~/dotfiles/vim/editor-settings/syntax.vim'
+execute 'source ~/dotfiles/vim-basic/editor-settings/syntax.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 06 Key Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-execute 'source ~/dotfiles/vim/editor-settings/keyMapping.vim'
+execute 'source ~/dotfiles/vim-basic/editor-settings/keyMapping.vim'

@@ -79,14 +79,21 @@ create_backup_of_original_dotfile () {
 
 create_link_to_dotfile () {
     for file in "$@"; do
+        srcname=$file
+        destname=$file
+
         echo ""
-        echo "--- --- FILENAME: $file"
+        echo "--- --- FILENAME: $srcname"
 
-        create_backup_of_original_dotfile "$file"
+        if [[ $srcname == "vimrc-basic" ]]; then
+            destname="vimrc"
+        fi
 
-        echo "${GREEN}::: Creating symlink in home directory from ~/dotfiles/$file to $file${NC}"
+        create_backup_of_original_dotfile "$srcname"
 
-        ln -s "$dir/$file" ~/".$file"
+        echo "${GREEN}::: Creating symlink in home directory from ~/dotfiles/$srcname to $destname${NC}"
+
+        ln -s "$dir/$srcname" ~/".$destname"
     done
 }
 
@@ -140,7 +147,7 @@ echo ""
 echo ""
 echo ""
 PS3=$'\n'"Select an item to install: "
-options=("atom" "vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "tmux" "bash_aliases" "bash_profile" "railsrc" "gemrc" "REMOVE ALL" "Quit")
+options=("atom" "vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "vimrc-basic" "tmux" "bash_aliases" "bash_profile" "railsrc" "gemrc" "REMOVE ALL" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -174,6 +181,9 @@ do
             ;;
         "vimrc")
             create_link_to_dotfile "vimrc"
+            ;;
+        "vimrc-basic")
+            create_link_to_dotfile "vimrc-basic"
             ;;
         "tmux")
             create_link_to_dotfile "tmux.conf"

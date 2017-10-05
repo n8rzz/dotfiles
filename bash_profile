@@ -28,7 +28,7 @@
 export N_PREFIX=$HOME/.node
 export PATH=$N_PREFIX/bin:$PATH
 # ulimit -n 10480
-export SSL_CERT_FILE=/usr/local/etc/openssl/certs/cacert.pem
+# export SSL_CERT_FILE=/usr/local/etc/openssl/certs/cacert.pem
 
 # source ~/.profile
 source ~/.bash_aliases
@@ -38,8 +38,6 @@ source ~/.bash_aliases
 [[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm"  
 # shellcheck source=/dev/null
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-if [ -e /Users/ngeslin/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/ngeslin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 #  -------------------------------------------------------------------------
 #  2. ALIASES
