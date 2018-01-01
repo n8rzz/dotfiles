@@ -21,7 +21,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/gitignore'
 
 " Syntax
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'nathanaelkane/vim-indent-guides'

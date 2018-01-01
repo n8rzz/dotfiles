@@ -97,28 +97,6 @@ create_link_to_dotfile () {
     done
 }
 
-# verify_or_create_sublime_text_user_dir() {
-#   if [[ -d ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User ]]; then
-#     return
-#   fi
-#
-#   echo "${YELLOW}::: User dir not found, creating it now${NC}"
-#
-#   mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-# }
-#
-# copy_sublime_text_3_user_dir () {
-#   if [[ ! -d ~/Library/Application\ Support/ && ! -d ~/Library/Application\ Support/Sublime\ Text\ 3/ ]]; then
-#     echo "${YELLOW}::: Sublime Text 3 not found, user settings not copied${NC}"
-#   fi
-#
-#   verify_or_create_sublime_text_user_dir
-#
-#   echo "${GREEN}::: Copying ~/dotfiles/sublimeText3/User to Sublime Text 3/Packages/User${NC}"
-#
-#   cp -R "$dir/sublimeText3/User/." "~/Library/Application Support/Sublime Text 3/Packages/User/"
-# }
-
 remove_atom_dir () {
   if [[ ! -d $atomDir ]]; then
     echo "${YELLOW}::: $atomDir does not exist, nothing to remove${NC}"
@@ -154,9 +132,6 @@ do
         "atom")
             copy_atom_dir true
             ;;
-        # "sublime text 3")
-        #     copy_sublime_text_3_user_dir
-        #     ;;
         "vim/tmux")
             install_vundle
             install_vim_plugins
