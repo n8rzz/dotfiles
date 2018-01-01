@@ -25,8 +25,8 @@
 #  -------------------------------------------------------------------------
 #  1. Environment Configuration
 #  -------------------------------------------------------------------------
-export N_PREFIX=$HOME/.node
-export PATH=$N_PREFIX/bin:$PATH
+# export N_PREFIX=$HOME/.node
+# export PATH=$N_PREFIX/bin:$PATH
 # ulimit -n 10480
 # export SSL_CERT_FILE=/usr/local/etc/openssl/certs/cacert.pem
 
@@ -119,3 +119,5 @@ alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
 #  -------------------------------------------------------------------------
 #  9.   Reminders & Notes
 #  -------------------------------------------------------------------------
+
+export N_PREFIX="$HOME/.node"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
