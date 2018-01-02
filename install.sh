@@ -50,20 +50,6 @@ install_vim_plugins () {
   vim +PluginInstall +qall
 }
 
-copy_atom_dir () {
-  shouldOverwrite=$1
-
-  if [ -d $atomDir ] && [ $shouldOverwrite ]; then
-      echo "${YELLOW}::: $atomDir already exists, removing dir before copy${NC}"
-
-      rm -rf $atomDir
-  fi
-
-  echo "${GREEN}::: Copying Atom directory${NC}"
-
-  cp -r $dir/'atom' $atomDir
-}
-
 create_backup_of_original_dotfile () {
     file=$1
 
@@ -93,14 +79,14 @@ create_link_to_dotfile () {
 
         echo "${GREEN}::: Creating symlink in home directory from ~/dotfiles/$srcname to $destname${NC}"
 
+        if [[ -L ~/."$destname" ]]; then
+          echo "${YELLOW}::: Replacing existing ${destname} with new file ${NC}"
+
+          rm ~/".$destname"
+        fi
+
         ln -s "$dir/$srcname" ~/".$destname"
     done
-}
-
-remove_atom_dir () {
-  if [[ ! -d $atomDir ]]; then
-    echo "${YELLOW}::: $atomDir does not exist, nothing to remove${NC}"
-  fi
 }
 
 remove_all_symlinks () {
@@ -125,13 +111,10 @@ echo ""
 echo ""
 echo ""
 PS3=$'\n'"Select an item to install: "
-options=("atom" "vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "vimrc-basic" "tmux" "bash_aliases" "bash_profile" "railsrc" "gemrc" "REMOVE ALL" "Quit")
+options=("vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "vimrc-basic" "tmux" "bash_aliases" "bash_profile" "railsrc" "gemrc" "REMOVE ALL" "QUIT")
 select opt in "${options[@]}"
 do
     case $opt in
-        "atom")
-            copy_atom_dir true
-            ;;
         "vim/tmux")
             install_vundle
             install_vim_plugins
@@ -167,6 +150,7 @@ do
             create_link_to_dotfile "bash_aliases"
             ;;
         "bash_profile")
+            create_link_to_dotfile "bash_aliases"
             create_link_to_dotfile "bash_profile"
             ;;
         "railsrc")
@@ -176,10 +160,9 @@ do
             create_link_to_dotfile "gemrc"
             ;;
         "REMOVE ALL")
-            remove_atom_dir
             remove_all_symlinks
             ;;
-        "Quit")
+        "QUIT")
             break
             ;;
         *) echo invalid option;;
