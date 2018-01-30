@@ -1,4 +1,0 @@
-" leafgarland/typescript-vim
-"""""""""""
-
-
