@@ -1,5 +1,0 @@
-{
-  // "shell_cmd": "grunt buildStyles",
-  "shell_cmd": "gulp build:sass",
-  "selector": "source.css"
-}
