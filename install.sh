@@ -50,20 +50,6 @@ install_vim_plugins () {
   vim +PluginInstall +qall
 }
 
-copy_atom_dir () {
-  shouldOverwrite=$1
-
-  if [ -d $atomDir ] && [ $shouldOverwrite ]; then
-      echo "${YELLOW}::: $atomDir already exists, removing dir before copy${NC}"
-
-      rm -rf $atomDir
-  fi
-
-  echo "${GREEN}::: Copying Atom directory${NC}"
-
-  cp -r $dir/'atom' $atomDir
-}
-
 create_backup_of_original_dotfile () {
     file=$1
 
@@ -79,43 +65,28 @@ create_backup_of_original_dotfile () {
 
 create_link_to_dotfile () {
     for file in "$@"; do
+        srcname=$file
+        destname=$file
+
         echo ""
-        echo "--- --- FILENAME: $file"
+        echo "--- --- FILENAME: $srcname"
 
-        create_backup_of_original_dotfile "$file"
+        if [[ $srcname == "vimrc-basic" ]]; then
+            destname="vimrc"
+        fi
 
-        echo "${GREEN}::: Creating symlink in home directory from ~/dotfiles/$file to $file${NC}"
+        create_backup_of_original_dotfile "$srcname"
 
-        ln -s "$dir/$file" ~/".$file"
+        echo "${GREEN}::: Creating symlink in home directory from ~/dotfiles/$srcname to $destname${NC}"
+
+        if [[ -L ~/."$destname" ]]; then
+          echo "${YELLOW}::: Replacing existing ${destname} with new file ${NC}"
+
+          rm ~/".$destname"
+        fi
+
+        ln -s "$dir/$srcname" ~/".$destname"
     done
-}
-
-# verify_or_create_sublime_text_user_dir() {
-#   if [[ -d ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User ]]; then
-#     return
-#   fi
-#
-#   echo "${YELLOW}::: User dir not found, creating it now${NC}"
-#
-#   mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-# }
-#
-# copy_sublime_text_3_user_dir () {
-#   if [[ ! -d ~/Library/Application\ Support/ && ! -d ~/Library/Application\ Support/Sublime\ Text\ 3/ ]]; then
-#     echo "${YELLOW}::: Sublime Text 3 not found, user settings not copied${NC}"
-#   fi
-#
-#   verify_or_create_sublime_text_user_dir
-#
-#   echo "${GREEN}::: Copying ~/dotfiles/sublimeText3/User to Sublime Text 3/Packages/User${NC}"
-#
-#   cp -R "$dir/sublimeText3/User/." "~/Library/Application Support/Sublime Text 3/Packages/User/"
-# }
-
-remove_atom_dir () {
-  if [[ ! -d $atomDir ]]; then
-    echo "${YELLOW}::: $atomDir does not exist, nothing to remove${NC}"
-  fi
 }
 
 remove_all_symlinks () {
@@ -140,16 +111,10 @@ echo ""
 echo ""
 echo ""
 PS3=$'\n'"Select an item to install: "
-options=("atom" "vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "tmux" "bash_aliases" "bash_profile" "railsrc" "gemrc" "REMOVE ALL" "Quit")
+options=("vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "vimrc-basic" "tmux" "bash_aliases" "bash_profile" "railsrc" "gemrc" "REMOVE ALL" "QUIT")
 select opt in "${options[@]}"
 do
     case $opt in
-        "atom")
-            copy_atom_dir true
-            ;;
-        # "sublime text 3")
-        #     copy_sublime_text_3_user_dir
-        #     ;;
         "vim/tmux")
             install_vundle
             install_vim_plugins
@@ -175,6 +140,9 @@ do
         "vimrc")
             create_link_to_dotfile "vimrc"
             ;;
+        "vimrc-basic")
+            create_link_to_dotfile "vimrc-basic"
+            ;;
         "tmux")
             create_link_to_dotfile "tmux.conf"
             ;;
@@ -182,6 +150,7 @@ do
             create_link_to_dotfile "bash_aliases"
             ;;
         "bash_profile")
+            create_link_to_dotfile "bash_aliases"
             create_link_to_dotfile "bash_profile"
             ;;
         "railsrc")
@@ -191,10 +160,9 @@ do
             create_link_to_dotfile "gemrc"
             ;;
         "REMOVE ALL")
-            remove_atom_dir
             remove_all_symlinks
             ;;
-        "Quit")
+        "QUIT")
             break
             ;;
         *) echo invalid option;;

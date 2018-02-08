@@ -25,8 +25,5 @@ nmap <leader>bl :ls<CR>
 " Close all bufers
 nmap <leader>bqa :bufdo bd<CR>
 
-" Tagbar
-nmap <leader>tt :TagbarToggle<CR>
-
 " Fzf
 nmap <C-p> :FZF<CR>
