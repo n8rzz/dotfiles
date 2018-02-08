@@ -13,7 +13,6 @@
 #  Selection UI inspired by:
 #  - http://askubuntu.com/questions/1705/how-can-i-create-a-select-menu-in-a-shell-script
 #  -------------------------------------------------------------------------
-
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
@@ -111,7 +110,7 @@ echo ""
 echo ""
 echo ""
 PS3=$'\n'"Select an item to install: "
-options=("vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "vimrc-basic" "tmux" "bash_aliases" "bash_profile" "railsrc" "gemrc" "REMOVE ALL" "QUIT")
+options=("vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "tmux" "bash_aliases" "bash_profile" "railsrc" "gemrc" "REMOVE ALL" "QUIT")
 select opt in "${options[@]}"
 do
     case $opt in
