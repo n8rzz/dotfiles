@@ -39,8 +39,6 @@ source ~/.bash_aliases
 # shellcheck source=/dev/null
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-if [ -e /Users/ngeslin/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/ngeslin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
 #  -------------------------------------------------------------------------
 #  2. ALIASES
 #  -------------------------------------------------------------------------
@@ -53,12 +51,12 @@ if [ -e /Users/ngeslin/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/ngesli
 #   fi; git commit-tree "$@"'
 
 # Tab completion
-if [[ ("$OSTYPE" =~ ^darwin) && (-f $(brew --prefix)/etc/bash_completion) ]]; then
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
   # shellcheck source=/dev/null
   . $(brew --prefix)/etc/bash_completion
 
   # add aliased git commands here to be recognized by tab complete
-  __git_complete gco _git_checkout
+  # __git_complete gco _git_checkout
 fi
 
 # Git branch name in prompt.
