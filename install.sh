@@ -49,6 +49,26 @@ install_vim_plugins () {
   vim +PluginInstall +qall
 }
 
+install_omzsh () {
+  echo "${GREEN}::: Installing Oh My Zsh${NC}"
+
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
+
+install_zsh_theme () {
+  echo "${GREEN}::: Installing Spaceship zsh theme${NC}"
+
+  git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+}
+
+install_powerline_fonts () {
+  echo "${GREEN}::: Installing Powerline Fonts${NC}"
+
+  git clone https://github.com/powerline/fonts.git ~/Documents/fonts
+  ~/Documents/fonts/install.sh
+}
+
 create_backup_of_original_dotfile () {
     file=$1
 
@@ -89,7 +109,7 @@ create_link_to_dotfile () {
 }
 
 remove_all_symlinks () {
-  fileList=("vimrc" "tmux" "bash_aliases" "bash_profile" "railsrc" "gemrc")
+  fileList=("vimrc" "tmux" "bash_aliases" "bash_profile" "railsrc" "gemrc" "zshrc")
 
   for file in "${fileList[@]}"; do
     if [[ ! -L ~/."$file" ]]; then
@@ -110,7 +130,7 @@ echo ""
 echo ""
 echo ""
 PS3=$'\n'"Select an item to install: "
-options=("vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "tmux" "bash_aliases" "bash_profile" "railsrc" "gemrc" "REMOVE ALL" "QUIT")
+options=("vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "tmux" "bash_aliases" "bash_profile" "oh-my-zsh" "zsh" "zshrc" "railsrc" "gemrc" "REMOVE ALL" "QUIT")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -139,9 +159,6 @@ do
         "vimrc")
             create_link_to_dotfile "vimrc"
             ;;
-        "vimrc-basic")
-            create_link_to_dotfile "vimrc-basic"
-            ;;
         "tmux")
             create_link_to_dotfile "tmux.conf"
             ;;
@@ -151,6 +168,18 @@ do
         "bash_profile")
             create_link_to_dotfile "bash_aliases"
             create_link_to_dotfile "bash_profile"
+            ;;
+        "oh-my-zsh")
+            install_omzsh
+            ;;
+        "zshrc")
+            create_link_to_dotfile "zshrc"
+            ;;
+        "zsh")
+            install_zsh_theme
+            install_powerline_fonts
+
+            create_link_to_dotfile "zshrc"
             ;;
         "railsrc")
             create_link_to_dotfile "railsrc"

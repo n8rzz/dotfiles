@@ -1,12 +1,13 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/floater/.oh-my-zsh
+export ZSH=/Users/ngeslin/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# ZSH_THEME="amuse"
 
 # https://github.com/tylerreckart/hyperzsh
 # ZSH_THEME="hyperzsh" 
@@ -15,23 +16,23 @@ export ZSH=/Users/floater/.oh-my-zsh
 ZSH_THEME="spaceship"
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_PROMPT_ORDER=(
-  time          # Time stampts section
-  user          # Username section
+   time          # Time stampts section
+#   user          # Username section
   dir           # Current directory section
-  host          # Hostname section
+#   host          # Hostname section
   git           # Git section (git_branch + git_status)
-  package       # Package version
-  node          # Node.js section
-  ruby          # Ruby section
-  golang        # Go section
-  docker        # Docker section
-  exec_time     # Execution time
-  line_sep      # Line break
-  battery       # Battery level and status
-  vi_mode       # Vi-mode indicator
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
+#   package       # Package version
+   node          # Node.js section
+   ruby          # Ruby section
+   golang        # Go section
+   docker        # Docker section
+#   exec_time     # Execution time
+#   line_sep      # Line break
+#   battery       # Battery level and status
+#   vi_mode       # Vi-mode indicator
+#   jobs          # Background jobs indicator
+#   exit_code     # Exit code section
+#   char          # Prompt character
 )
 
 # Set list of themes to load
@@ -119,3 +120,7 @@ source ~/.bash_aliases
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

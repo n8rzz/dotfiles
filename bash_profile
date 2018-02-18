@@ -51,20 +51,20 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 #   fi; git commit-tree "$@"'
 
 # Tab completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  # shellcheck source=/dev/null
-  . $(brew --prefix)/etc/bash_completion
-
-  # add aliased git commands here to be recognized by tab complete
-  # __git_complete gco _git_checkout
-fi
+# if [ -f $(brew --prefix)/etc/bash_completion ]; then
+#   # shellcheck source=/dev/null
+#   . $(brew --prefix)/etc/bash_completion
+#
+#   # add aliased git commands here to be recognized by tab complete
+#   # __git_complete gco _git_checkout
+# fi
 
 # Git branch name in prompt.
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 # export PS1="\u@\h \W\[\033[35m\]\$(parse_git_branch)\[\033[00m\] $ "
-export PS1="\u \[\033[032m\]:::\[\033[0m\] \w\[\033[35m\]\$(parse_git_branch)\[\033[00m\] $ "
+export PS1="\u \[\033[032m\]:::\[\033[0m\] \w\[\033[35m\]\$(parse_git_branch())\[\033[00m\] $ "
 
 # Show dirty state in prompt when in Git repos
 export GIT_PS1_SHOWDIRTYSTATE=1
