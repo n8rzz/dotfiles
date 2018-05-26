@@ -11,7 +11,7 @@ export PATH=$PATH:$GOPATH/bin
 export GOPATH=$GOPATH:/$HOME/go_projects
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/ngeslin/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -95,6 +95,7 @@ DISABLE_AUTO_UPDATE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  npm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -125,10 +126,6 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 
 source ~/.bash_aliases
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
