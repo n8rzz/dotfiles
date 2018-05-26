@@ -1,6 +1,15 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# path to go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOROOT/bin
+# path to go exe
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+# path to local go projects
+export GOPATH=$GOPATH:/$HOME/go_projects
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/ngeslin/.oh-my-zsh
 

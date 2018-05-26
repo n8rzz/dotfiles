@@ -21,6 +21,14 @@ alias .....='cd ../../../..'
 alias tls='tmux ls'
 alias ta='tmux attach-session -t'
 
+## Docker
+alias dc='docker-compose'
+alias de='docker exec -it'
+alias dcd='docker-compose down'
+alias dcb='docker-compose build'
+alias dcu='docker-compose up'
+alias docker-destory="sh ~/dotfiles/scripts/docker-destory.sh"
+
 ## Git
 alias gst='clear && git status'
 alias gco='git checkout'
@@ -40,7 +48,4 @@ alias reseed='rake db:reset && rake db:migrate && rake db:seed'
 
 ## General Utility
 alias sgc='git config user.name "Nate Geslin" && git config user.email teamtomkins23@gmail.com'
-
 alias ni='npm install --verbose'
-alias naproxy="npm config set proxy http://'ADEBPGESLINA:10%40Beech7%23'@fhdcproxy.verizon.com:80"
-alias nrproxy='npm config rm proxy'
