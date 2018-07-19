@@ -35,7 +35,7 @@ source ~/.bash_aliases
 
 # Load RVM into a shell session *as a function*
 # shellcheck source=/dev/null
-[[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm"  
+[[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm"
 # shellcheck source=/dev/null
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
