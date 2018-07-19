@@ -35,7 +35,7 @@
 				"comment.line.double-slash.js"
 			],
 			"settings": {
-				"foreground": "#505050"
+				"foreground": "#b3b3b3"
 			}
 		},
 		{
@@ -73,7 +73,7 @@
 				"punctuation.definition.bold.markdown"
 			],
 			"settings": {
-				"foreground": "#505050"
+				"foreground": "#b3b3b3"
 			}
 		},
 		{
@@ -125,7 +125,7 @@
 				"meta.preprocessor.string"
 			],
 			"settings": {
-				"foreground": "#ce9178"
+				"foreground": "#6d6d6d"
 			}
 		},
 		{
@@ -146,6 +146,12 @@
 			],
 			"settings": {
 				"foreground": "#569cd6"
+			}
+		},
+		{
+			"scope": "storage.modifier.ts",
+			"settings": {
+				"foreground": "#2b9fff"
 			}
 		},
 		{
@@ -205,7 +211,7 @@
 				"keyword.operator"
 			],
 			"settings": {
-				"foreground": "#C586C0"
+				"foreground": "#ef9e00"
 			}
 		},
 		{
@@ -1104,6 +1110,14 @@
 		},
 		{
 			"scope": [
+				"source.ts"
+			],
+			"settings": {
+				"foreground": "#ef9e00"
+			}
+		},
+		{
+			"scope": [
 				"variable.language.this"
 			],
 			"settings": {
@@ -1132,7 +1146,7 @@
 				"punctuation.definition.string.template.end.ts"
 			],
 			"settings": {
-				"foreground": "#ce9178"
+				"foreground": "#6d6d6d"
 			}
 		},
 		{

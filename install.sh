@@ -21,6 +21,12 @@ dir=~/dotfiles                        # dotfiles directory
 backup_dir=~/dotfiles_old             # old dotfiles backup directory
 atomDir=~/.atom                       # atom configuration directory
 
+# $1 - color or color var
+# $2 - msg
+print_line_with_color () {
+    echo "$1 $2${NC}"
+}
+
 initialize () {
     clear
 
@@ -34,50 +40,60 @@ create_backup_dir () {
 }
 
 install_vundle () {
-  if [[ ! -d ~/.vim || ! -d ~/.vim/bundle ]]; then
-    echo "${YELLOW}::: Vundle not installed, installing Vundle${NC}"
+    if [[ ! -d ~/.vim || ! -d ~/.vim/bundle ]]; then
+        echo "${YELLOW}::: Vundle not installed, installing Vundle${NC}"
 
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  else
-      echo "${GREEN}::: Vundle already installed${NC}"
-  fi
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    else
+        echo "${GREEN}::: Vundle already installed${NC}"
+    fi
+}
+
+install_nvm () {
+    if ! type "nvm" &> /dev/null; then
+        print_line_with_color "${GREEN}" "::: nvm already installed"
+    else
+        print_line_with_color "${GREEN}" "::: nvm not installed, installing nvm"
+
+        curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+    fi
 }
 
 install_vim_plugins () {
-  echo "${GREEN}::: Installing VIM plugins${NC}"
+    print_line_with_color "${GREEN}" "::: Installing VIM plugins"
 
-  vim +PluginInstall +qall
+    vim +PluginInstall +qall
 }
 
 install_omzsh () {
-  echo "${GREEN}::: Installing Oh My Zsh${NC}"
+    print_line_with_color "${GREEN}" "::: Installing Oh My Zsh"
 
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
 install_zsh_theme () {
-  echo "${GREEN}::: Installing Spaceship zsh theme${NC}"
+    print_line_with_color "${GREEN}" "::: Installing Spaceship zsh theme"
 
-  git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+    git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+    ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 }
 
 install_powerline_fonts () {
-  echo "${GREEN}::: Installing Powerline Fonts${NC}"
+    print_line_with_color "${GREEN}" "::: Installing Powerline Fonts"
 
-  git clone https://github.com/powerline/fonts.git ~/Documents/fonts
-  ~/Documents/fonts/install.sh
+    git clone https://github.com/powerline/fonts.git ~/Documents/fonts
+    ~/Documents/fonts/install.sh
 }
 
 create_backup_of_original_dotfile () {
     file=$1
 
     if [[ ! -e ~/."$file" ]]; then
-        echo "${YELLOW}::: $file File not found, no backup copy made ${NC}"
+        print_line_with_color "${YELLOW}" "::: $file File not found, no backup copy made"
         return
     fi
 
-    echo "${YELLOW}::: Moving $file from ~/ to $backup_dir${NC}"
+    print_line_with_color "${YELLOW}" "::: Moving $file from ~/ to $backup_dir"
 
     mv ~/".$file" ~/dotfiles_old/".$file"
 }
@@ -87,19 +103,15 @@ create_link_to_dotfile () {
         srcname=$file
         destname=$file
 
-        echo ""
-        echo "--- --- FILENAME: $srcname"
-
-        if [[ $srcname == "vimrc-basic" ]]; then
-            destname="vimrc"
-        fi
+        print_line_with_color ""
+        print_line_with_color "--- --- FILENAME: $srcname"
 
         create_backup_of_original_dotfile "$srcname"
 
-        echo "${GREEN}::: Creating symlink in home directory from ~/dotfiles/$srcname to $destname${NC}"
+        print_line_with_color "${GREEN}" "::: Creating symlink in home directory from ~/dotfiles/$srcname to $destname"
 
         if [[ -L ~/."$destname" ]]; then
-          echo "${YELLOW}::: Replacing existing ${destname} with new file ${NC}"
+          print_line_with_color "${YELLOW}" "::: Replacing existing ${destname} with new file"
 
           rm ~/".$destname"
         fi
@@ -116,7 +128,7 @@ remove_all_symlinks () {
       continue
     fi
 
-    echo "${RED}::: Removing $file from ~/dotfiles/$file${NC}"
+        print_line_with_color "${RED}" "::: Removing $file from ~/dotfiles/$file"
 
     rm ~/."$file"
   done
@@ -130,7 +142,7 @@ echo ""
 echo ""
 echo ""
 PS3=$'\n'"Select an item to install: "
-options=("vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "tmux" "bash_aliases" "bash_profile" "oh-my-zsh" "zsh" "zshrc" "railsrc" "gemrc" "REMOVE ALL" "QUIT")
+options=("vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "tmux" "nvm" "bash_aliases" "bash_profile" "oh-my-zsh" "zsh" "zshrc" "railsrc" "gemrc" "REMOVE ALL" "QUIT")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -158,6 +170,9 @@ do
             ;;
         "vimrc")
             create_link_to_dotfile "vimrc"
+            ;;
+        "nvm")
+            install_nvm
             ;;
         "tmux")
             create_link_to_dotfile "tmux.conf"
