@@ -41,11 +41,11 @@ create_backup_dir () {
 
 install_vundle () {
     if [[ ! -d ~/.vim || ! -d ~/.vim/bundle ]]; then
-        echo "${YELLOW}::: Vundle not installed, installing Vundle${NC}"
+        print_line_with_color "${YELLOW}" "::: Vundle not installed, installing Vundle"
 
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     else
-        echo "${GREEN}::: Vundle already installed${NC}"
+        print_line_with_color "${GREEN}" "--- Vundle already installed"
     fi
 }
 
@@ -83,6 +83,25 @@ install_powerline_fonts () {
 
     git clone https://github.com/powerline/fonts.git ~/Documents/fonts
     ~/Documents/fonts/install.sh
+}
+
+install_autogit_and_config () {
+    print_line_with_color "${GREEN}" "::: Installing autogit"
+
+    if [[ ! -d ~/.autogit ]]; then
+        git clone https://github.com/n8rzz/autogit.git ~/Documents/www/
+        mkdir ~/.autogit
+    else
+        print_line_with_color "${YELLOW}" "--- autogit is already installed"
+    fi
+
+    print_line_with_color "${GREEN}" "--- copying autogit configuration"
+
+    cp ~/dotfiles/config/autogit/config.js ~/.autogit/config.js
+    cp ~/dotfiles/config/autogit/package.json ~/.autogit/package.json
+    cd ~/.autogit/
+    npm install
+    cd ~/
 }
 
 create_backup_of_original_dotfile () {
@@ -142,7 +161,7 @@ echo ""
 echo ""
 echo ""
 PS3=$'\n'"Select an item to install: "
-options=("vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "tmux" "nvm" "bash_aliases" "bash_profile" "oh-my-zsh" "zsh" "zshrc" "railsrc" "gemrc" "REMOVE ALL" "QUIT")
+options=("vim/tmux" "bash" "rc files" "vim plugins" "vundle" "vimrc" "tmux" "nvm" "autogit" "bash_aliases" "bash_profile" "oh-my-zsh" "zsh" "zshrc" "railsrc" "gemrc" "REMOVE ALL" "QUIT")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -176,6 +195,9 @@ do
             ;;
         "tmux")
             create_link_to_dotfile "tmux.conf"
+            ;;
+        "autogit")
+            install_autogit_and_config
             ;;
         "bash_aliases")
             create_link_to_dotfile "bash_aliases"

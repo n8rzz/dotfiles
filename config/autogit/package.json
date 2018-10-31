@@ -1,0 +1,11 @@
+{
+    "name": "autogit",
+    "version": "1.0.0",
+    "description": "",
+    "dependencies": {
+      "autogit-command-fetch": "^1.0.2",
+      "autogit-command-pull": "^1.0.1",
+      "autogit-command-push": "^1.0.1",
+      "autogit-command-status": "^1.0.0"
+    }
+  }

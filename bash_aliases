@@ -32,8 +32,9 @@ alias docker-destory="sh ~/dotfiles/scripts/docker-destory.sh"
 ## Git
 alias gst='clear && git status'
 alias gco='git checkout'
+alias gcm='checkmeout'
 alias gbr='git branch'
-alias gad='git add -A'
+# alias gad='git add -A'
 alias gr='git reset HEAD --hard && git clean -f -d'
 alias gdc='git diff --stat --color'
 alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
@@ -41,6 +42,7 @@ alias glg2='git log --date-order --all --graph --name-status --format="%C(green)
 
 ## Node & NPM
 alias ni='npm install --verbose'
+alias nbs='npm run build && npm run start'
 
 ## Rails
 alias migrate='rake db:migrate && rake db:migrate RAILS_ENV=test'
@@ -48,4 +50,3 @@ alias reseed='rake db:reset && rake db:migrate && rake db:seed'
 
 ## General Utility
 alias sgc='git config user.name "Nate Geslin" && git config user.email teamtomkins23@gmail.com'
-alias ni='npm install --verbose'

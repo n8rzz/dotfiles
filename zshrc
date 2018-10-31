@@ -19,7 +19,7 @@ export ZSH=~/.oh-my-zsh
 # ZSH_THEME="amuse"
 
 # https://github.com/tylerreckart/hyperzsh
-# ZSH_THEME="hyperzsh" 
+# ZSH_THEME="hyperzsh"
 
 # https://github.com/denysdovhan/spaceship-prompt
 ZSH_THEME="spaceship"
@@ -133,6 +133,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export GOPATH=$HOME/go
 
 # Autoload correct node version
 autoload -U add-zsh-hook
