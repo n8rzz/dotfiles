@@ -8,7 +8,6 @@
 #               the .bash_profile or .bashrc (when on linux).
 #
 #  -------------------------------------------------------------------------
-
 alias ll='ls -la'
 alias ~='cd ~'
 alias c='clear'
