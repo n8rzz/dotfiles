@@ -33,15 +33,15 @@ alias gst='clear && git status'
 alias gco='git checkout'
 alias gcm='checkmeout'
 alias gbr='git branch'
-# alias gad='git add -A'
+alias ga='git add .'
 alias gr='git reset HEAD --hard && git clean -f -d'
 alias gdc='git diff --stat --color'
+alias gl='git log --pretty=format:"%C(bold black)%h%Creset %C(magenta)[%cr]%Creset ~>%C(green)%d%Creset %s %C(yellow)<%an>%Creset" --abbrev-commit'
 alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
-alias glg2='git log --date-order --all --graph --name-status --format="%C(green)%H%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
+# alias glg2='git log --date-order --all --graph --name-status --format="%C(green)%H%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
 
 ## Node & NPM
 alias ni='npm install --verbose'
-alias nbs='npm run build && npm run start'
 
 ## Rails
 alias migrate='rake db:migrate && rake db:migrate RAILS_ENV=test'
