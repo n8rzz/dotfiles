@@ -1,14 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# path to go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOROOT/bin
-# path to go exe
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-# path to local go projects
-export GOPATH=$GOPATH:/$HOME/go_projects
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export GOPATH=$HOME/go
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -125,15 +117,16 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+source ~/.bashrc
 source ~/.bash_aliases
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export GOPATH=$HOME/go
+# export PATH="$PATH:$HOME/.rvm/bin"
+# export GOPATH=$HOME/go
 
 # Autoload correct node version
 autoload -U add-zsh-hook

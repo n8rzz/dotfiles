@@ -39,6 +39,7 @@ alias gdc='git diff --stat --color'
 alias gl='git log --pretty=format:"%C(bold black)%h%Creset %C(magenta)[%cr]%Creset ~>%C(green)%d%Creset %s %C(yellow)<%an>%Creset" --abbrev-commit'
 alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
 # alias glg2='git log --date-order --all --graph --name-status --format="%C(green)%H%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
+alias gcount='git rev-list --count --no-merges'
 
 ## Node & NPM
 alias ni='npm install --verbose'
