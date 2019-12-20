@@ -40,6 +40,7 @@ alias gl='git log --pretty=format:"%C(bold black)%h%Creset %C(magenta)[%cr]%Cres
 alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
 # alias glg2='git log --date-order --all --graph --name-status --format="%C(green)%H%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
 alias gcount='git rev-list --count --no-merges'
+alias gtag='git describe --abbrev=0 --tags'
 
 ## Node & NPM
 alias ni='npm install --verbose'
