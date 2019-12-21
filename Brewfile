@@ -26,6 +26,7 @@ brew 'homebrew/dupes/grep'
 brew 'bash-completion'
 brew 'git'
 brew 'heroku-toolbelt'
+brew 'hub'
 brew 'postgresql', restart_service: true
 brew 'ren'
 brew 'shellcheck'
