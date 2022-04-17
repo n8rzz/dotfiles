@@ -42,6 +42,9 @@ alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(ye
 alias gcount='git rev-list --count --no-merges'
 alias gtag='git describe --abbrev=0 --tags'
 
+# hub + git
+alias gci='hub ci-status -v $(git rev-parse HEAD)'
+
 ## Node & NPM
 alias ni='npm install --verbose'
 
