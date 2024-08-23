@@ -54,3 +54,4 @@ alias reseed='rake db:reset && rake db:migrate && rake db:seed'
 
 ## General Utility
 alias sgc='git config user.name "Nate Geslin" && git config user.email teamtomkins23@gmail.com'
+alias python=python3
